@@ -1,0 +1,72 @@
+name: Update Danbooru tag list
+
+on:
+  schedule:
+    # 毎週月曜 03:00 UTC（=日本時間 月曜 正午）に自動実行
+    - cron: "0 3 * * 1"
+  workflow_dispatch: {}  # 手動実行ボタンも使えるように
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45  # 5カテゴリ分を取得するため、以前(1カテゴリ)より時間がかかります
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install certifi
+
+      - name: Fetch & build tag list
+        run: |
+          python fetch_danbooru_tags.py \
+            --out-dir dist \
+            --translation-csv "${{ vars.TRANSLATION_CSV_URL }}"
+        # TRANSLATION_CSV_URL は Settings > Secrets and variables > Actions > Variables
+        # で設定するリポジトリ変数。例えば boorutan/booru-japanese-tag の
+        # danbooru-jp.csv の raw URL を入れておくと、日本語訳が自動でマージされる。
+        # 未設定でもスクリプトは動作する（翻訳なしで出力されるだけ）。
+        #
+        # 作者・作品名・キャラクター・一般・メタは既定で全部取得されます。
+        # 一部だけで良い場合は --categories characters,copyrights のように絞れます。
+        # 各カテゴリのしきい値/取得ページ数上限は --min-count-characters や
+        # --max-pages-characters のように個別調整できます（fetch_danbooru_tags.py --help 参照）。
+
+      - name: Show summary
+        run: cat dist/meta.json
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "tagdb-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dist/
+          if git diff --cached --quiet; then
+            echo "No changes, skipping commit."
+          else
+            git commit -m "chore: update tag list ($(date -u +'%Y-%m-%d'))"
+            git push
+          fi
+
+      # HuggingFace Datasetsにも配布したい場合は、下のコメントを外して
+      # HF_TOKEN（write権限のアクセストークン）をリポジトリのSecretsに登録する。
+      # - name: Push to Hugging Face Hub
+      #   env:
+      #     HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      #   run: |
+      #     pip install huggingface_hub
+      #     python - <<'PY'
+      #     import os
+      #     from huggingface_hub import HfApi
+      #     api = HfApi(token=os.environ["HF_TOKEN"])
+      #     api.upload_folder(
+      #         folder_path="dist",
+      #         repo_id="your-username/danbooru-tags-ja",  # 事前にHF上でdataset repoを作成しておく
+      #         repo_type="dataset",
+      #     )
+      #     PY
