@@ -12,7 +12,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 45  # 5カテゴリ分を取得するため、以前(1カテゴリ)より時間がかかります
+    timeout-minutes: 60  # 5カテゴリ分を取得するため、以前(1カテゴリ)より時間がかかります
     steps:
       - uses: actions/checkout@v6
         with:

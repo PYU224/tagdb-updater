@@ -75,7 +75,7 @@ CATEGORY_NAMES = {0: "general", 1: "artists", 3: "copyrights", 4: "characters", 
 # Per-category defaults. Artist/copyright/character tags individually have far fewer posts
 # than general tags, so a uniform threshold would silently drop most minor series/characters.
 DEFAULT_MIN_COUNT = {0: 30, 1: 20, 3: 10, 4: 10, 5: 30}
-DEFAULT_MAX_PAGES = {0: 60, 1: 40, 3: 30, 4: 50, 5: 20}
+DEFAULT_MAX_PAGES = {0: 60, 1: 50, 3: 40, 4: 80, 5: 20}
 
 
 def http_get_json(url, retries=5):
