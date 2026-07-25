@@ -29,6 +29,7 @@ jobs:
         run: |
           python fetch_danbooru_tags.py \
             --out-dir dist \
+            --emit-merged-ja \
             --translation-csv "${{ vars.TRANSLATION_CSV_URL }}"
         # TRANSLATION_CSV_URL は Settings > Secrets and variables > Actions > Variables
         # で設定するリポジトリ変数。例えば boorutan/booru-japanese-tag の
