@@ -1,0 +1,51 @@
+name: Deploy tag recipe page
+
+# dist/ が更新されたら（＝タグ更新ワークフローが走った後）Pages を作り直す。
+# 手動実行もできる。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'dist/danbooru-ja.csv'
+      - 'dist/meta.json'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時に走らせない。走行中のデプロイはキャンセルせず終わらせる。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/data
+          cp web/index.html _site/index.html
+          # dist/ 全部ではなく、ページが実際に読む2ファイルだけ置く。
+          # danbooru-ja.csv は update-tags.yml 側で --emit-merged-ja を付けて生成すること。
+          cp dist/danbooru-ja.csv _site/data/danbooru-ja.csv
+          cp dist/meta.json       _site/data/meta.json
+          # Jekyll を通さない（_ で始まるパスやテンプレート記法の誤解釈を避ける）
+          touch _site/.nojekyll
+          ls -la _site _site/data
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
