@@ -32,8 +32,9 @@
   }
   .btn:hover{ background:rgba(244,239,227,.08); }
   .btn.primary{ background:var(--shu); border-color:var(--shu); }
-  .btn.primary:hover{ background:#a8header; filter:brightness(1.1); }
+  .btn.primary:hover{ filter:brightness(1.12); }
   .btn.sm{ padding:2px 7px; font-size:11.5px; }
+  #btn-lang{ border-color:var(--ai); color:#bcd3ea; }
   main{ flex:1; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0; overflow:hidden; }
   .pane{ overflow-y:auto; padding:16px; }
   .pane + .pane{ border-left:1px solid var(--line); }
@@ -72,81 +73,209 @@
   .bar{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:10px 0; }
   .bar label{ font-size:12px; color:var(--sub); }
   .bar select{ width:auto; padding:5px 8px; font-size:12.5px; }
-  .recipe-item{ display:flex; align-items:center; gap:8px; padding:6px 9px; border:1px solid var(--line); border-radius:7px; margin-bottom:5px; background:var(--ink-2); }
-  .recipe-item .nm{ flex:1; font-size:12.5px; }
   #loading{ padding:24px 16px; color:var(--sub); }
   .prog{ height:4px; background:var(--ink-3); border-radius:2px; overflow:hidden; margin-top:8px; }
   .prog i{ display:block; height:100%; background:var(--shu); width:0; transition:width .2s; }
   .err{ color:var(--shu-lt); }
   a{ color:var(--ai); }
   kbd{ background:var(--ink-3); border:1px solid var(--line); border-radius:4px; padding:0 5px; font-size:11px; }
+  footer{
+    border-top:1px solid var(--line); background:var(--ink-2); padding:12px 16px;
+    color:var(--sub); font-size:11.5px; line-height:1.8;
+  }
+  footer .credit{ color:var(--paper); }
+  footer a{ color:var(--ai); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
 <header>
-  <h1>タグレシピ <small>Danbooruタグ → NovelAI / Stable Diffusion プロンプト</small></h1>
+  <h1><span data-i18n="title">タグレシピ</span> <small data-i18n="subtitle">Danbooruタグ → NovelAI / Stable Diffusion プロンプト</small></h1>
   <span class="grow"></span>
-  <button class="btn" id="btn-export">レシピを書き出し</button>
-  <button class="btn" id="btn-import">読み込み</button>
+  <button class="btn" id="btn-lang">English</button>
+  <button class="btn" id="btn-export" data-i18n="export">レシピを書き出し</button>
+  <button class="btn" id="btn-import" data-i18n="import">読み込み</button>
   <input type="file" id="file-import" accept=".json" hidden>
 </header>
 
-<div id="loading">タグ辞書を読み込んでいます…<div class="prog"><i id="prog"></i></div></div>
+<div id="loading"><span data-i18n="loading">タグ辞書を読み込んでいます…</span><div class="prog"><i id="prog"></i></div></div>
 
 <main id="app" hidden>
   <section class="pane">
-    <h2>タグを探す</h2>
+    <h2 data-i18n="findTags">タグを探す</h2>
     <div class="search-wrap">
-      <input type="search" id="q" placeholder="日本語・英語どちらでも（例：ツインテール / twintails）" autocomplete="off">
+      <input type="search" id="q" data-i18n-ph="searchPh" placeholder="日本語・英語どちらでも（例：ツインテール / twintails）" autocomplete="off">
     </div>
     <div class="bar">
-      <label>カテゴリ</label>
+      <label data-i18n="category">カテゴリ</label>
       <select id="cat">
-        <option value="">すべて</option>
-        <option value="0">一般</option>
-        <option value="4">キャラクター</option>
-        <option value="3">作品</option>
-        <option value="1">絵師</option>
-        <option value="5">メタ</option>
+        <option value=""  data-i18n="catAll">すべて</option>
+        <option value="0" data-i18n="cat0">一般</option>
+        <option value="4" data-i18n="cat4">キャラクター</option>
+        <option value="3" data-i18n="cat3">作品</option>
+        <option value="1" data-i18n="cat1">絵師</option>
+        <option value="5" data-i18n="cat5">メタ</option>
       </select>
       <span class="hint" id="dictinfo"></span>
     </div>
     <div class="results" id="results"></div>
     <div id="cooc-wrap" hidden>
-      <h2 style="margin-top:20px;">よく一緒に使っているタグ</h2>
-      <p class="hint">保存したレシピの組み合わせから算出しています。使うほど精度が上がります。</p>
+      <h2 style="margin-top:20px;" data-i18n="together">よく一緒に使っているタグ</h2>
+      <p class="hint" data-i18n="togetherHint">保存したレシピの組み合わせから算出しています。使うほど精度が上がります。</p>
       <div class="results" id="cooc"></div>
     </div>
   </section>
 
   <section class="pane">
-    <h2>レシピ</h2>
-    <input type="text" id="recipe-name" placeholder="レシピ名（例：立ち絵・制服）">
+    <h2 data-i18n="recipe">レシピ</h2>
+    <input type="text" id="recipe-name" data-i18n-ph="recipeNamePh" placeholder="レシピ名（例：立ち絵・制服）">
     <div class="bar">
-      <button class="btn primary sm" id="btn-save">保存</button>
-      <button class="btn sm" id="btn-clear">全消去</button>
-      <select id="saved"><option value="">保存済みレシピ…</option></select>
-      <button class="btn sm" id="btn-del">削除</button>
+      <button class="btn primary sm" id="btn-save" data-i18n="save">保存</button>
+      <button class="btn sm" id="btn-clear" data-i18n="clear">全消去</button>
+      <select id="saved"></select>
+      <button class="btn sm" id="btn-del" data-i18n="del">削除</button>
     </div>
     <div class="chips" id="chips"></div>
 
     <div class="bar">
-      <label>出力形式</label>
+      <label data-i18n="format">出力形式</label>
       <select id="fmt">
-        <option value="nai-brace">NovelAI（{}／[]で強調）</option>
-        <option value="nai-num">NovelAI V4（1.2::tag::）</option>
-        <option value="sd">Stable Diffusion（(tag:1.2)）</option>
-        <option value="plain">重みなし（カンマ区切りのみ）</option>
+        <option value="nai-brace" data-i18n="fmtBrace">NovelAI（{}／[]で強調）</option>
+        <option value="nai-num"   data-i18n="fmtNum">NovelAI V4（1.2::tag::）</option>
+        <option value="sd"        data-i18n="fmtSd">Stable Diffusion（(tag:1.2)）</option>
+        <option value="plain"     data-i18n="fmtPlain">重みなし（カンマ区切りのみ）</option>
       </select>
-      <button class="btn sm" id="btn-copy">コピー</button>
+      <button class="btn sm" id="btn-copy" data-i18n="copy">コピー</button>
     </div>
     <textarea class="out" id="out" readonly></textarea>
-    <p class="hint">タグをクリックで追加、<kbd>+</kbd><kbd>−</kbd>で強調度を調整します。同じタグは重複追加されません。</p>
+    <p class="hint" id="usage-hint"></p>
   </section>
 </main>
 
+<footer>
+  <div class="credit">
+    <span data-i18n="madeBy">制作：</span>
+    <a href="https://github.com/PYU224" target="_blank" rel="noopener">PYU</a>
+    &nbsp;/&nbsp;
+    <a href="https://github.com/PYU224/tagdb-updater" target="_blank" rel="noopener">github.com/PYU224/tagdb-updater</a>
+  </div>
+  <div data-i18n="footerData">タグデータは Danbooru の公開APIから毎週自動取得しています。日本語はDanbooruのwiki別名とコミュニティ製の翻訳CSVを併用しており、機械翻訳を含みます。</div>
+  <div data-i18n="footerDisclaimer">本サイトは Danbooru とは無関係の非公式プロジェクトです。成人向けを含むタグが収録されている点にご注意ください。</div>
+</footer>
+
 <script>
 "use strict";
+/* ------------------------------------------------------------------ *
+ * 文言（日本語 / English）
+ * DOM側は data-i18n / data-i18n-ph で対応付け、動的に組み立てる文字列は
+ * t() 経由で引く。切り替え時は render() を呼び直せば全部追従する。
+ * ------------------------------------------------------------------ */
+const I18N = {
+  ja: {
+    htmlLang:'ja',
+    docTitle:'タグレシピ — Danbooruタグからプロンプトを組み立てる',
+    docDesc:'Danbooruのタグ一覧（日本語つき）から、NovelAI / Stable Diffusion 用のプロンプトを予測変換で組み立てるツール。',
+    langBtn:'English',
+    title:'タグレシピ',
+    subtitle:'Danbooruタグ → NovelAI / Stable Diffusion プロンプト',
+    export:'レシピを書き出し', import:'読み込み',
+    loading:'タグ辞書を読み込んでいます…',
+    loadFail:'読み込みに失敗しました：',
+    loadFailHint:'GitHub Pages の公開元と、ワークフローが data/ を配置しているかを確認してください。',
+    findTags:'タグを探す',
+    searchPh:'日本語・英語どちらでも（例：ツインテール / twintails）',
+    category:'カテゴリ',
+    catAll:'すべて', cat0:'一般', cat1:'絵師', cat3:'作品', cat4:'キャラクター', cat5:'メタ',
+    noResults:'該当するタグがありません。',
+    together:'よく一緒に使っているタグ',
+    togetherHint:'保存したレシピの組み合わせから算出しています。使うほど精度が上がります。',
+    recipe:'レシピ',
+    recipeNamePh:'レシピ名（例：立ち絵・制服）',
+    save:'保存', clear:'全消去', del:'削除',
+    savedDefault:'保存済みレシピ…',
+    format:'出力形式',
+    fmtBrace:'NovelAI（{}／[]で強調）', fmtNum:'NovelAI V4（1.2::tag::）',
+    fmtSd:'Stable Diffusion（(tag:1.2)）', fmtPlain:'重みなし（カンマ区切りのみ）',
+    copy:'コピー', copied:'コピーしました',
+    emptyRecipe:'左の一覧からタグをクリックして追加してください。',
+    usageHint:'タグをクリックで追加、<kbd>+</kbd><kbd>−</kbd>で強調度を調整します。同じタグは重複追加されません。',
+    weaken:'弱める', strengthen:'強める', remove:'削除',
+    untitled:'無題のレシピ',
+    confirmDel:'このレシピを削除しますか？',
+    saveFail:'保存できませんでした（ブラウザの保存容量の上限かもしれません）。',
+    importFail:'読み込みに失敗しました：',
+    noRecipesArr:'recipes配列がありません',
+    dictInfo:(t,j,d)=>`辞書 ${t.toLocaleString()}件 / 日本語 ${j.toLocaleString()}件（${d}）`,
+    madeBy:'制作：',
+    footerData:'タグデータは Danbooru の公開APIから毎週自動取得しています。日本語はDanbooruのwiki別名とコミュニティ製の翻訳CSVを併用しており、機械翻訳を含みます。',
+    footerDisclaimer:'本サイトは Danbooru とは無関係の非公式プロジェクトです。成人向けを含むタグが収録されている点にご注意ください。'
+  },
+  en: {
+    htmlLang:'en',
+    docTitle:'Tag Recipe — build prompts from Danbooru tags',
+    docDesc:'Build NovelAI / Stable Diffusion prompts from the Danbooru tag list, with Japanese readings and type-ahead search.',
+    langBtn:'日本語',
+    title:'Tag Recipe',
+    subtitle:'Danbooru tags → NovelAI / Stable Diffusion prompts',
+    export:'Export recipes', import:'Import',
+    loading:'Loading the tag dictionary…',
+    loadFail:'Could not load the data: ',
+    loadFailHint:'Check that GitHub Pages is set to build from Actions and that the workflow copied the files into data/.',
+    findTags:'Find tags',
+    searchPh:'Japanese or English (e.g. twintails / ツインテール)',
+    category:'Category',
+    catAll:'All', cat0:'General', cat1:'Artist', cat3:'Copyright', cat4:'Character', cat5:'Meta',
+    noResults:'No matching tags.',
+    together:'Often used together',
+    togetherHint:'Worked out from the recipes you have saved. It gets better the more you use it.',
+    recipe:'Recipe',
+    recipeNamePh:'Recipe name (e.g. standing, school uniform)',
+    save:'Save', clear:'Clear all', del:'Delete',
+    savedDefault:'Saved recipes…',
+    format:'Output format',
+    fmtBrace:'NovelAI (emphasis with {} and [])', fmtNum:'NovelAI V4 (1.2::tag::)',
+    fmtSd:'Stable Diffusion ((tag:1.2))', fmtPlain:'No weights (comma separated)',
+    copy:'Copy', copied:'Copied',
+    emptyRecipe:'Click a tag on the left to add it here.',
+    usageHint:'Click a tag to add it; <kbd>+</kbd> and <kbd>−</kbd> adjust the emphasis. Duplicates are ignored.',
+    weaken:'Weaken', strengthen:'Strengthen', remove:'Remove',
+    untitled:'Untitled recipe',
+    confirmDel:'Delete this recipe?',
+    saveFail:'Could not save (your browser storage may be full).',
+    importFail:'Import failed: ',
+    noRecipesArr:'no "recipes" array found',
+    dictInfo:(t,j,d)=>`${t.toLocaleString()} tags / ${j.toLocaleString()} with Japanese (${d})`,
+    madeBy:'Made by',
+    footerData:'Tag data is pulled from the public Danbooru API every week. Japanese comes from Danbooru wiki other_names plus a community translation CSV, so some entries are machine translated.',
+    footerDisclaimer:'An unofficial project, not affiliated with Danbooru. Note that the tag set includes adult content.'
+  }
+};
+const LANG_KEY = 'tagrecipe:lang';
+let lang = (function(){
+  try{ const v = localStorage.getItem(LANG_KEY); if (v && I18N[v]) return v; }catch(e){}
+  return (navigator.language || '').toLowerCase().startsWith('ja') ? 'ja' : 'en';
+})();
+function t(key){ return I18N[lang][key]; }
+
+function applyLang(){
+  const L = I18N[lang];
+  document.documentElement.lang = L.htmlLang;
+  document.title = L.docTitle;
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', L.docDesc);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = L[el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const v = L[el.dataset.i18nPh];
+    if (v !== undefined) el.placeholder = v;
+  });
+  $('btn-lang').textContent = L.langBtn;
+  $('usage-hint').innerHTML = L.usageHint;   // contains <kbd>
+  try{ localStorage.setItem(LANG_KEY, lang); }catch(e){}
+}
+
 /* ------------------------------------------------------------------ *
  * データ読み込み
  * dist/danbooru-ja.csv（tag,category,count,"aliases",日本語）を読む。
@@ -156,10 +285,10 @@
 const DATA_CSV = 'data/danbooru-ja.csv';
 const META_URL = 'data/meta.json';
 const CAT_COLOR = {0:'#5b7fa6', 1:'#bc4b3c', 3:'#8a6f9e', 4:'#6b8f6b', 5:'#b08d57'};
-const CAT_NAME  = {0:'一般', 1:'絵師', 3:'作品', 4:'キャラ', 5:'メタ'};
 
 let DICT = [];            // {t, c, cnt, ja, tl, jal}
 let recipe = [];          // {t, ja, c, w}
+let metaInfo = null;
 const $ = id => document.getElementById(id);
 
 function idb(){
@@ -213,15 +342,24 @@ function buildDict(text){
     if (!line || line.charCodeAt(0) === 13) continue;
     const c = parseLine(line.charCodeAt(line.length-1) === 13 ? line.slice(0,-1) : line);
     if (c.length < 3) continue;
-    const t = c[0];
-    if (!t) continue;
+    const tag = c[0];
+    if (!tag) continue;
     const ja = (c[4] || '').trim();
     /* 検索用に小文字版を1度だけ作っておく。毎キーストロークでtoLowerCaseすると
        18万件では体感できるほど遅くなる。 */
-    dict[n++] = { t, c:+c[1]||0, cnt:+c[2]||0, ja, tl:t.toLowerCase(), jal:ja.toLowerCase() };
+    dict[n++] = { t:tag, c:+c[1]||0, cnt:+c[2]||0, ja, tl:tag.toLowerCase(), jal:ja.toLowerCase() };
   }
   dict.length = n;
   return dict;
+}
+
+function renderDictInfo(){
+  if (!metaInfo) return;
+  $('dictinfo').textContent = t('dictInfo')(
+    metaInfo.tag_count_total || 0,
+    metaInfo.translated_count_total || 0,
+    (metaInfo.generated_at || '').slice(0,10)
+  );
 }
 
 async function load(){
@@ -229,9 +367,9 @@ async function load(){
   try{
     let stamp = 'unknown';
     try{
-      const meta = await (await fetch(META_URL, {cache:'no-cache'})).json();
-      stamp = meta.generated_at || 'unknown';
-      $('dictinfo').textContent = `辞書 ${(meta.tag_count_total||0).toLocaleString()}件 / 日本語 ${(meta.translated_count_total||0).toLocaleString()}件（${(stamp||'').slice(0,10)}）`;
+      metaInfo = await (await fetch(META_URL, {cache:'no-cache'})).json();
+      stamp = metaInfo.generated_at || 'unknown';
+      renderDictInfo();
     }catch(e){ /* meta.json が無くても致命的ではない */ }
 
     const cached = await idbGet('dict:' + stamp).catch(()=>null);
@@ -239,7 +377,7 @@ async function load(){
       DICT = cached; prog.style.width = '100%';
     } else {
       const resp = await fetch(DATA_CSV);
-      if (!resp.ok) throw new Error(DATA_CSV + ' が取得できません (' + resp.status + ')');
+      if (!resp.ok) throw new Error(DATA_CSV + ' (' + resp.status + ')');
       /* 数MBあるので進捗を出す。Content-Lengthが無い（gzip配信）場合は不定表示。 */
       const total = +resp.headers.get('content-length') || 0;
       const reader = resp.body && resp.body.getReader ? resp.body.getReader() : null;
@@ -263,8 +401,8 @@ async function load(){
     $('loading').hidden = true; $('app').hidden = false;
     loadSavedList(); render();
   }catch(e){
-    $('loading').innerHTML = '<p class="err">読み込みに失敗しました：' + e.message +
-      '</p><p class="hint">GitHub Pages の公開元と、ワークフローが data/ を配置しているかを確認してください。</p>';
+    $('loading').innerHTML = '<p class="err">' + esc(t('loadFail') + e.message) +
+      '</p><p class="hint">' + esc(t('loadFailHint')) + '</p>';
   }
 }
 
@@ -274,8 +412,8 @@ async function load(){
 function search(rawQ, cat, limit){
   const q = rawQ.trim().toLowerCase().replace(/_/g,' ');
   if (!q) return [];
-  const cap = limit * 4;
   const qw = ' ' + q;
+  const cap = limit * 4;
   // 完全一致 / 語頭一致 / 和名前方 / 部分一致 / 和名部分
   // 「語頭一致」は先頭だけでなく2語目以降の語頭も含める。段の中は投稿数順なので、
   // "miku" と打てば hatsune miku が mikuma (kancolle) より上に来る。
@@ -303,7 +441,7 @@ function search(rawQ, cat, limit){
 
 function rowHtml(e){
   return `<div class="row" data-t="${esc(e.t)}">
-    <span class="dot" style="background:${CAT_COLOR[e.c]||'#5b7fa6'}" title="${CAT_NAME[e.c]||''}"></span>
+    <span class="dot" style="background:${CAT_COLOR[e.c]||'#5b7fa6'}" title="${esc(t('cat'+e.c)||'')}"></span>
     <span class="en">${esc(e.t)}</span>
     <span class="ja">${esc(e.ja||'')}</span>
     <span class="cnt">${e.cnt ? e.cnt.toLocaleString() : ''}</span>
@@ -320,23 +458,23 @@ function cooccurrence(){
   if (!cur.size) return [];
   const score = new Map();
   for (const r of listSaved()){
-    const tags = (r.tags||[]).map(t=>t.t);
-    const hit = tags.filter(t=>cur.has(t)).length;
+    const tags = (r.tags||[]).map(x=>x.t);
+    const hit = tags.filter(x=>cur.has(x)).length;
     if (!hit) continue;
-    for (const t of tags){
-      if (cur.has(t)) continue;
-      score.set(t, (score.get(t)||0) + hit);
+    for (const x of tags){
+      if (cur.has(x)) continue;
+      score.set(x, (score.get(x)||0) + hit);
     }
   }
   const byTag = new Map(DICT.map(e=>[e.t, e]));
   return [...score.entries()].sort((a,b)=>b[1]-a[1]).slice(0,12)
-    .map(([t])=> byTag.get(t) || {t, c:0, cnt:0, ja:''});
+    .map(([x])=> byTag.get(x) || {t:x, c:0, cnt:0, ja:''});
 }
 
 /* ---------------------------- レシピ操作 ---------------------------- */
-function addTag(t){
-  if (recipe.some(r=>r.t === t)) return;      // 重複は無視（出力が二重になるため）
-  const e = DICT.find(x=>x.t === t) || {t, c:0, ja:''};
+function addTag(tag){
+  if (recipe.some(r=>r.t === tag)) return;      // 重複は無視（出力が二重になるため）
+  const e = DICT.find(x=>x.t === tag) || {t:tag, c:0, ja:''};
   recipe.push({ t:e.t, ja:e.ja, c:e.c, w:0 });
   render();
 }
@@ -360,12 +498,12 @@ function render(){
     <span class="chip ${r.w>0?'pos':r.w<0?'neg':''}">
       <span class="dot" style="background:${CAT_COLOR[r.c]||'#5b7fa6'}"></span>
       <span title="${esc(r.ja||'')}">${esc(r.t)}</span>
-      <button data-act="dn" data-i="${i}" title="弱める">−</button>
+      <button data-act="dn" data-i="${i}" title="${esc(t('weaken'))}">−</button>
       <span class="w">${r.w>0?'+'+r.w:r.w}</span>
-      <button data-act="up" data-i="${i}" title="強める">＋</button>
-      <button data-act="rm" data-i="${i}" title="削除">✕</button>
+      <button data-act="up" data-i="${i}" title="${esc(t('strengthen'))}">＋</button>
+      <button data-act="rm" data-i="${i}" title="${esc(t('remove'))}">✕</button>
     </span>`).join('')
-    : '<span class="hint" style="margin:4px 8px;">左の一覧からタグをクリックして追加してください。</span>';
+    : '<span class="hint" style="margin:4px 8px;">' + esc(t('emptyRecipe')) + '</span>';
   $('out').value = recipe.map(r=>fmtTag(r, mode)).join(', ');
 
   const co = cooccurrence();
@@ -378,20 +516,30 @@ const SAVE_KEY = 'tagrecipe:saved';
 function listSaved(){ try{ return JSON.parse(localStorage.getItem(SAVE_KEY)) || []; }catch(e){ return []; } }
 function writeSaved(v){
   try{ localStorage.setItem(SAVE_KEY, JSON.stringify(v)); }
-  catch(e){ alert('保存できませんでした（ブラウザの保存容量の上限かもしれません）。'); }
+  catch(e){ alert(t('saveFail')); }
 }
 function loadSavedList(){
   const sel = $('saved');
-  sel.innerHTML = '<option value="">保存済みレシピ…</option>' +
-    listSaved().map((r,i)=>`<option value="${i}">${esc(r.name||'(無題)')}</option>`).join('');
+  const keep = sel.value;
+  sel.innerHTML = `<option value="">${esc(t('savedDefault'))}</option>` +
+    listSaved().map((r,i)=>`<option value="${i}">${esc(r.name||'-')}</option>`).join('');
+  sel.value = keep;
 }
 
 /* ----------------------------- 配線 ----------------------------- */
 let searchTimer = null;
 function runSearch(){
   $('results').innerHTML = search($('q').value, $('cat').value, 40).map(rowHtml).join('')
-    || '<p class="hint">該当するタグがありません。</p>';
+    || '<p class="hint">' + esc(t('noResults')) + '</p>';
 }
+$('btn-lang').addEventListener('click', ()=>{
+  lang = (lang === 'ja') ? 'en' : 'ja';
+  applyLang();
+  renderDictInfo();
+  loadSavedList();
+  render();
+  if ($('q').value.trim()) runSearch();
+});
 $('q').addEventListener('input', ()=>{ clearTimeout(searchTimer); searchTimer = setTimeout(runSearch, 80); });
 $('cat').addEventListener('change', runSearch);
 document.addEventListener('click', e=>{
@@ -411,11 +559,11 @@ $('btn-copy').addEventListener('click', async ()=>{
   const ta = $('out');
   try{ await navigator.clipboard.writeText(ta.value); }
   catch(e){ ta.select(); document.execCommand('copy'); }
-  const b = $('btn-copy'); b.textContent = 'コピーしました'; setTimeout(()=>b.textContent='コピー', 1200);
+  const b = $('btn-copy'); b.textContent = t('copied'); setTimeout(()=>{ b.textContent = t('copy'); }, 1200);
 });
 $('btn-clear').addEventListener('click', ()=>{ recipe = []; render(); });
 $('btn-save').addEventListener('click', ()=>{
-  const name = $('recipe-name').value.trim() || '無題のレシピ';
+  const name = $('recipe-name').value.trim() || t('untitled');
   const all = listSaved();
   const idx = all.findIndex(r=>r.name === name);
   const rec = { name, tags: recipe.map(r=>({t:r.t, w:r.w})), at: new Date().toISOString() };
@@ -426,13 +574,13 @@ $('saved').addEventListener('change', e=>{
   const r = listSaved()[+e.target.value];
   if (!r) return;
   const byTag = new Map(DICT.map(x=>[x.t, x]));
-  recipe = (r.tags||[]).map(t=>{ const e2 = byTag.get(t.t) || {t:t.t, c:0, ja:''}; return {t:t.t, ja:e2.ja, c:e2.c, w:t.w||0}; });
+  recipe = (r.tags||[]).map(x=>{ const e2 = byTag.get(x.t) || {t:x.t, c:0, ja:''}; return {t:x.t, ja:e2.ja, c:e2.c, w:x.w||0}; });
   $('recipe-name').value = r.name || '';
   render();
 });
 $('btn-del').addEventListener('click', ()=>{
   const i = +$('saved').value;
-  if ($('saved').value === '' || !confirm('このレシピを削除しますか？')) return;
+  if ($('saved').value === '' || !confirm(t('confirmDel'))) return;
   const all = listSaved(); all.splice(i,1); writeSaved(all); loadSavedList();
 });
 $('btn-export').addEventListener('click', ()=>{
@@ -449,14 +597,15 @@ $('file-import').addEventListener('change', e=>{
   fr.onload = ()=>{
     try{
       const d = JSON.parse(fr.result);
-      if (!Array.isArray(d.recipes)) throw new Error('recipes配列がありません');
+      if (!Array.isArray(d.recipes)) throw new Error(t('noRecipesArr'));
       writeSaved(listSaved().concat(d.recipes)); loadSavedList();
-    }catch(err){ alert('読み込みに失敗しました：' + err.message); }
+    }catch(err){ alert(t('importFail') + err.message); }
     e.target.value = '';
   };
   fr.readAsText(f, 'utf-8');
 });
 
+applyLang();
 load();
 </script>
 </body>
