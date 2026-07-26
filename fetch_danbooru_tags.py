@@ -57,13 +57,16 @@ boorutan/booru-japanese-tag の danbooru-machine-jp.csv 等（<English>,<Japanes
 
 import argparse
 import csv
+import http.client
 import re
 import io
 import json
+import random
 import ssl
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -95,23 +98,56 @@ DEFAULT_MIN_COUNT = {0: 30, 1: 20, 3: 10, 4: 10, 5: 30}
 DEFAULT_MAX_PAGES = {0: 60, 1: 50, 3: 40, 4: 80, 5: 20}
 
 
-def http_get_json(url, retries=5):
+# Retried, with exponential backoff. Danbooru sits behind Cloudflare, so besides the ordinary
+# 5xx codes we also see the Cloudflare-specific 520-527 family ("unknown error", "connection
+# timed out", "origin unreachable"). Those fire intermittently on long paginated runs and mean
+# "the edge could not reach the origin right now" — not "stop". Treating any 5xx as retryable
+# is what keeps a 40-minute crawl from dying an hour in on one bad response.
+RETRYABLE_STATUS = {408, 425, 429}
+
+
+DEFAULT_RETRIES = 7
+
+
+def http_get_json(url, retries=None):
+    retries = DEFAULT_RETRIES if retries is None else retries
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     for attempt in range(retries):
         try:
-            with urllib.request.urlopen(req, timeout=30, context=SSL_CONTEXT) as resp:
+            with urllib.request.urlopen(req, timeout=60, context=SSL_CONTEXT) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
-            if e.code == 429:
-                wait = 5 * (attempt + 1)
-                print(f"  429 rate limited, waiting {wait}s...", file=sys.stderr)
-                time.sleep(wait)
-                continue
-            if e.code in (500, 502, 503, 504):
-                time.sleep(3 * (attempt + 1))
-                continue
-            raise
-        except urllib.error.URLError as e:
+            if e.code not in RETRYABLE_STATUS and e.code < 500:
+                raise  # 404/410/422 etc. are meaningful to the caller (end of pagination)
+            if attempt == retries - 1:
+                hint = ""
+                if 520 <= e.code <= 527:
+                    hint = (
+                        " (a Cloudflare edge error in front of Danbooru — usually transient;"
+                        " re-run, or raise --retries / --request-interval)"
+                    )
+                raise RuntimeError(f"giving up after {retries} attempts, HTTP {e.code}{hint}: {url}")
+            wait = min(90.0, 3.0 * (2 ** attempt)) + random.uniform(0, 2)
+            retry_after = e.headers.get("Retry-After") if e.headers else None
+            if retry_after:
+                try:
+                    wait = max(wait, float(retry_after))
+                except (TypeError, ValueError):
+                    pass
+            print(
+                f"  HTTP {e.code}, retry {attempt + 1}/{retries} in {wait:.0f}s...",
+                file=sys.stderr,
+            )
+            time.sleep(wait)
+        except (OSError, http.client.HTTPException, json.JSONDecodeError) as e:
+            # Deliberately broad. urllib leaks a surprising variety of transport failures on a
+            # long crawl: http.client.IncompleteRead when Cloudflare truncates a response
+            # mid-stream, ssl.SSLEOFError on a dropped TLS session, socket.gaierror on a DNS
+            # blip. None of them are subclasses of URLError, so naming individual types meant a
+            # 40-minute run could still die on one bad packet. OSError covers URLError,
+            # ConnectionError, TimeoutError, ssl.SSLError and socket errors; HTTPException covers
+            # the rest. HTTPError is handled above, and it is caught first because it is itself
+            # an OSError subclass and carries a status code worth acting on.
             if "CERTIFICATE_VERIFY_FAILED" in str(e) and attempt == 0:
                 print(
                     "  SSL certificate verification failed. Danbooru's own certificate is "
@@ -121,8 +157,16 @@ def http_get_json(url, retries=5):
                     "antivirus/corporate-proxy TLS inspection.",
                     file=sys.stderr,
                 )
-            print(f"  network error ({e}), retrying...", file=sys.stderr)
-            time.sleep(3 * (attempt + 1))
+            if attempt == retries - 1:
+                raise RuntimeError(
+                    f"giving up after {retries} attempts ({type(e).__name__}: {e}): {url}"
+                )
+            wait = min(90.0, 3.0 * (2 ** attempt)) + random.uniform(0, 2)
+            print(
+                f"  {type(e).__name__}: {e} — retry {attempt + 1}/{retries} in {wait:.0f}s...",
+                file=sys.stderr,
+            )
+            time.sleep(wait)
     raise RuntimeError(f"failed to fetch after {retries} retries: {url}")
 
 
@@ -200,60 +244,150 @@ def read_text_source(path_or_url):
 # Kana / CJK ideographs / prolonged sound mark. Used to pick the Japanese entry out of a
 # wiki page's other_names, which also contain romaji, Korean, Chinese and so on.
 JA_CHARS = re.compile(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3005\u30FC]")
+# Hiragana + katakana only. Used to tell Japanese apart from Chinese, which shares the kanji.
+KANA_CHARS = re.compile(r"[\u3040-\u309F\u30A0-\u30FF]")
 
 
-def fetch_wiki_other_names(max_pages=400):
+# Tried in order. If the first page of a variant comes back empty or without any other_names,
+# the next one is tried. Danbooru has changed search parameter names before, and a silently
+# ignored or rejected parameter used to leave us with an empty dict and no explanation — the
+# whole point of --wiki-names quietly doing nothing.
+# Tried in order until one returns rows that actually carry other_names. Danbooru has changed
+# search parameter names before, and a silently ignored or rejected parameter used to leave us
+# with an empty dict and no explanation.
+#
+# The unfiltered form is deliberately first. search[other_names_present]=true looked like the
+# obvious optimisation, but in practice it returned barely a thousand rows and then dried up,
+# so we walk every wiki page and do the "has other_names" test here instead. Same request count
+# either way, and no dependence on a parameter whose exact semantics we cannot verify.
+WIKI_QUERY_VARIANTS = [
+    "only=id,title,other_names",
+    "search[other_names_present]=true&only=id,title,other_names",
+    "",
+]
+
+
+def fetch_wiki_other_names(max_pages=400, verbose=True):
     """
     Danbooru has no translation API, but every tag can have a wiki page, and wiki pages carry an
-    `other_names` list — the alternate names shown as small bubbles under the wiki title. For
-    Japanese works these are in practice the pixiv tags, i.e. the real Japanese name of the
-    character/series/artist, entered by hand by Danbooru editors. That is a far better source for
-    character and copyright tags than any machine translation.
+    `other_names` list — the alternate names shown as bubbles under the wiki title. For Japanese
+    works these are in practice the pixiv tags, i.e. the real Japanese name of the
+    character/series/artist, entered by hand by Danbooru editors. Far better for character and
+    copyright tags than any machine translation.
 
-    Uses id-based cursor pagination (page=b<id>) rather than page numbers: Danbooru refuses
-    numbered pages past a certain offset, and there are ~180k wiki pages to walk.
+    Numbered pagination, matching fetch_tags/fetch_aliases. An earlier version used id cursors
+    (page=b<id>), which quietly stopped after two pages and returned ~1k of the ~200k wiki pages —
+    enough to look like it had worked.
     Returns dict: tag name (underscored, as Danbooru stores it) -> list of other names.
     """
     out = {}
-    before = None
+    chosen = None
+    scanned = 0
     for page in range(1, max_pages + 1):
-        url = (
-            f"{DANBOORU_BASE}/wiki_pages.json"
-            f"?search[other_names_present]=true&limit={PAGE_LIMIT}&only=id,title,other_names"
-        )
-        if before is not None:
-            url += f"&page=b{before}"
-        print(f"fetching wiki other_names page {page}...", file=sys.stderr)
-        try:
-            batch = http_get_json(url)
-        except urllib.error.HTTPError as e:
-            if e.code in (410, 422):
-                break
-            raise
+        batch = None
+        for variant in (WIKI_QUERY_VARIANTS if chosen is None else [chosen]):
+            url = f"{DANBOORU_BASE}/wiki_pages.json?limit={PAGE_LIMIT}&page={page}"
+            if variant:
+                url += "&" + variant
+            try:
+                batch = http_get_json(url)
+            except urllib.error.HTTPError as e:
+                if e.code in (410, 422):
+                    if chosen is not None:
+                        batch = []          # genuine end of pagination
+                        break
+                    print(f"  wiki query rejected (HTTP {e.code}), trying another form...", file=sys.stderr)
+                    batch = None
+                    continue
+                raise
+            if chosen is None:
+                usable = sum(1 for r in (batch or []) if r.get("other_names"))
+                if not batch or not usable:
+                    print(
+                        f"  wiki query returned {len(batch or [])} rows / {usable} with"
+                        f" other_names — trying another form...", file=sys.stderr,
+                    )
+                    batch = None
+                    continue
+                chosen = variant
+                print(f"  wiki query OK: /wiki_pages.json?{variant or '(no filter)'}", file=sys.stderr)
+            break
+
+        if batch is None:
+            print(
+                "  ERROR: none of the wiki_pages.json query forms returned usable other_names.\n"
+                "  Run with --debug-wiki <tag> to see the raw response for a single tag.",
+                file=sys.stderr,
+            )
+            return out
         if not batch:
             break
+        scanned += len(batch)
         for row in batch:
             title = row.get("title")
             names = row.get("other_names") or []
             if title and names:
                 out[title] = names
-            rid = row.get("id")
-            if rid is not None and (before is None or rid < before):
-                before = rid
+        if verbose and (page <= 3 or page % 20 == 0):
+            print(
+                f"fetching wiki other_names page {page}... "
+                f"({scanned:,} scanned, {len(out):,} with names)", file=sys.stderr,
+            )
         time.sleep(REQUEST_INTERVAL)
         if len(batch) < PAGE_LIMIT:
             break
+    else:
+        print(
+            f"  NOTE: stopped at the --max-pages-wiki limit ({max_pages}). Raise it if the count"
+            f" below looks short.", file=sys.stderr,
+        )
+    # ~200k wiki pages exist and a large share carry other_names. Anything in the low thousands
+    # means pagination died early rather than the data being small.
+    if 0 < len(out) < 5000:
+        print(
+            f"  WARNING: only {len(out):,} wiki pages with other_names were collected, which is"
+            f" far fewer than expected. Pagination probably stopped early — please report the"
+            f" page numbers logged above.", file=sys.stderr,
+        )
     return out
 
 
+def debug_wiki(tag):
+    """Print the raw wiki_pages.json response for one tag, plus what we would extract from it.
+    A 30-second check instead of re-running the whole crawl."""
+    name = tag.strip().replace(" ", "_")
+    url = f"{DANBOORU_BASE}/wiki_pages.json?search[title]={urllib.parse.quote(name)}&limit=5"
+    print(f"GET {url}\n", file=sys.stderr)
+    rows = http_get_json(url)
+    if not rows:
+        print("no wiki page found for that tag.", file=sys.stderr)
+        return
+    for r in rows:
+        print(json.dumps({k: r.get(k) for k in ("id", "title", "other_names")}, ensure_ascii=False, indent=2))
+        print("  -> would use:", repr(pick_japanese_name(r.get("other_names"))), file=sys.stderr)
+
+
 def pick_japanese_name(names):
-    """First entry that actually contains Japanese characters. `other_names` is an ordered,
-    hand-maintained list, so the first Japanese-looking one is normally the primary name."""
+    """
+    Pick the Japanese entry from a wiki page's other_names.
+
+    Prefer a candidate containing kana. other_names routinely also holds the Chinese and Korean
+    names (uchi_no_hime-sama_ga_ichiban_kawaii carries 我家公主最可愛 alongside the Japanese
+    titles), and Chinese is written in the same ideographs, so "contains CJK" alone picks the
+    wrong language whenever the Chinese entry happens to come first. Kana is the one script only
+    Japanese uses. Kanji-only candidates are kept as a fallback for names that genuinely have no
+    kana, which is why we do two passes instead of just filtering.
+    """
+    ideograph_only = ""
     for n in names or []:
         n = (n or "").strip()
-        if n and JA_CHARS.search(n):
+        if not n:
+            continue
+        if KANA_CHARS.search(n):
             return n
-    return ""
+        if not ideograph_only and JA_CHARS.search(n):
+            ideograph_only = n
+    return ideograph_only
 
 
 def load_translation_csv(path_or_url):
@@ -422,6 +556,7 @@ def write_comfyui_txt(dataset, path):
 
 
 def main():
+    global REQUEST_INTERVAL, DEFAULT_RETRIES
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out-dir", default="dist", help="output directory")
     ap.add_argument(
@@ -446,6 +581,18 @@ def main():
             "Comma-separate several; the first one listed wins on conflicts, so put a "
             "hand-curated file before a machine-translated one."
         ),
+    )
+    ap.add_argument(
+        "--debug-wiki", metavar="TAG", default="",
+        help="print the raw wiki_pages.json response for one tag and exit (no crawl)",
+    )
+    ap.add_argument(
+        "--retries", type=int, default=7,
+        help="HTTP retry attempts per request (default: 7). Raise if Danbooru/Cloudflare is flaky.",
+    )
+    ap.add_argument(
+        "--request-interval", type=float, default=REQUEST_INTERVAL,
+        help=f"seconds to sleep between requests (default: {REQUEST_INTERVAL}). Raise to be gentler.",
     )
     ap.add_argument(
         "--wiki-names",
@@ -475,6 +622,13 @@ def main():
     )
     args = ap.parse_args()
 
+    REQUEST_INTERVAL = max(0.0, args.request_interval)
+    DEFAULT_RETRIES = max(1, args.retries)
+
+    if args.debug_wiki:
+        debug_wiki(args.debug_wiki)
+        return
+
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -490,6 +644,13 @@ def main():
     wiki_names = fetch_wiki_other_names(max_pages=args.max_pages_wiki) if args.wiki_names else {}
     if args.wiki_names:
         print(f"fetched other_names for {len(wiki_names):,} wiki pages", file=sys.stderr)
+        if not wiki_names:
+            print(
+                "  WARNING: --wiki-names collected nothing, so every Japanese string will come\n"
+                "  from --translation-csv. Check the messages above, or run:\n"
+                "    python fetch_danbooru_tags.py --debug-wiki hatsune_miku",
+                file=sys.stderr,
+            )
 
     translations, translation_sources = load_translations(args.translation_csv)
     print(f"loaded {len(translations):,} translations in total", file=sys.stderr)
@@ -504,6 +665,11 @@ def main():
     counts_by_category = {}
     translated_by_category = {}
     ja_source_stats = {}
+    # Fetch everything first, write nothing until every category has succeeded. A crash partway
+    # through (a Cloudflare blip, a network drop) used to leave dist/ holding some freshly
+    # written categories next to stale ones from the previous run — an inconsistent set that
+    # still looks valid.
+    fetched = []
     for name in wanted:
         cat_id = name_to_id[name]
         min_count = getattr(args, f"min_count_{name}")
@@ -516,6 +682,10 @@ def main():
         for k, v in src_stats.items():
             ja_source_stats[k] = ja_source_stats.get(k, 0) + v
         dataset.sort(key=lambda r: r["cnt"], reverse=True)
+        fetched.append((name, dataset))
+
+    print("all categories fetched; writing files...", file=sys.stderr)
+    for name, dataset in fetched:
         counts_by_category[name] = len(dataset)
         all_dataset.extend(dataset)
         write_csv(dataset, out_dir / f"danbooru-{name}.csv")
