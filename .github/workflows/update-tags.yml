@@ -9,10 +9,18 @@ on:
 permissions:
   contents: write
 
+# 手動実行がスケジュール実行と重なると、同じ dist/ に対して2つのジョブが
+# push を奪い合う。走行中のものは最後まで走らせ、後続だけ待たせる。
+concurrency:
+  group: update-tags
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # 5カテゴリ分を取得するため、以前(1カテゴリ)より時間がかかります
+    # 5カテゴリのタグ + エイリアス + wikiのother_names を取得するため、
+    # リクエスト間1秒スリープの分だけまとまった時間がかかる（目安15〜25分）。
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v6
         with:
@@ -29,20 +37,59 @@ jobs:
         run: |
           python fetch_danbooru_tags.py \
             --out-dir dist \
+            --wiki-names \
             --emit-merged-ja \
             --translation-csv "${{ vars.TRANSLATION_CSV_URL }}"
+        # --wiki-names
+        #   Danbooruのwikiページの other_names（＝実質pixivタグ）を取得して日本語欄に使う。
+        #   キャラ・作品・絵師については人手で入力された本物の日本語名が入っているため、
+        #   機械翻訳より圧倒的に質が良い（例：vivienne (uchihime) → ヴィヴィアンヌ）。
+        #   wikiページを約20万件walkするので、この工程だけで数分かかる。
+        #
+        # --emit-merged-ja
+        #   dist/danbooru-ja.csv（tag,category,count,"aliases",日本語 の5列）を追加出力する。
+        #   これ1本で候補・件数・訳がそろうので、GitHub Pages版やタグ台帳はこれだけ読めば良い。
+        #
         # TRANSLATION_CSV_URL は Settings > Secrets and variables > Actions > Variables
-        # で設定するリポジトリ変数。例えば boorutan/booru-japanese-tag の
-        # danbooru-jp.csv の raw URL を入れておくと、日本語訳が自動でマージされる。
-        # 未設定でもスクリプトは動作する（翻訳なしで出力されるだけ）。
+        # で設定するリポジトリ変数。カンマ区切りで複数指定でき、先に書いたものが優先される。
+        # 推奨値（手動訳を優先し、残りを機械訳で埋める）:
+        #   https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-jp.csv,https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-machine-jp.csv
+        # 未設定でもスクリプトは動作する（wikiの分だけ日本語が入る）。
         #
         # 作者・作品名・キャラクター・一般・メタは既定で全部取得されます。
         # 一部だけで良い場合は --categories characters,copyrights のように絞れます。
         # 各カテゴリのしきい値/取得ページ数上限は --min-count-characters や
-        # --max-pages-characters のように個別調整できます（fetch_danbooru_tags.py --help 参照）。
+        # --max-pages-characters のように個別調整できます（--help 参照）。
 
       - name: Show summary
         run: cat dist/meta.json
+
+      - name: Sanity check
+        # 過去に、翻訳ソースの取り違えやページングの不具合で日本語が
+        # ほぼ空のまま「正常終了」したことがある。壊れたデータを
+        # コミットしてしまう前にここで止める。
+        run: |
+          python - <<'PY'
+          import json, sys
+          m = json.load(open("dist/meta.json", encoding="utf-8"))
+          total = m.get("tag_count_total", 0)
+          ratio = m.get("translated_ratio", 0)
+          wiki  = m.get("ja_source_counts", {}).get("wiki", 0)
+          print(f"tags={total:,} translated={m.get('translated_count_total',0):,} "
+                f"({ratio:.1%}) wiki={wiki:,}")
+          errors = []
+          if total < 100_000:
+              errors.append(f"tag count {total:,} is far below the usual ~186,000")
+          if ratio < 0.40:
+              errors.append(f"translated ratio {ratio:.1%} is far below the usual ~68%")
+          if m.get("wiki_other_names_used") and wiki < 10_000:
+              errors.append(f"--wiki-names was on but only {wiki:,} tags got a name from the wiki")
+          if errors:
+              for e in errors:
+                  print(f"::error::{e}")
+              sys.exit(1)
+          print("looks healthy")
+          PY
 
       - name: Commit changes if any
         run: |

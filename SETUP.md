@@ -7,101 +7,153 @@
 ## 中身
 
 ```
-fetch_danbooru_tags.py         Danbooru APIから作者/作品名/キャラクター/一般/メタの
-                                タグ+エイリアスをカテゴリ別に取得し、日本語訳CSVを
-                                マージしてCSV/JSON/ComfyUI用txtを書き出す
+fetch_danbooru_tags.py              Danbooru APIからタグ+エイリアス+wikiの別名を取得し、
+                                    日本語訳CSVをマージしてCSV/JSON/txtを書き出す
 .github/workflows/update-tags.yml   週1回自動実行するGitHub Actions
-dist/                           実行結果の出力先（下記）
+dist/                               実行結果の出力先
 ```
 
 `dist/` の出力ファイル：
 
 | ファイル | 内容 |
 |---|---|
-| `danbooru.csv` / `tags.json` | 全カテゴリまとめ（a1111互換CSV／このツール用JSON） |
-| `danbooru-general.csv` / `.json` | 一般タグ（category 0） |
-| `danbooru-artists.csv` / `.json` | 作者タグ（category 1） |
-| `danbooru-copyrights.csv` / `.json` | 作品名タグ（category 3） |
-| `danbooru-characters.csv` / `.json` | キャラクタータグ（category 4） |
-| `danbooru-meta.csv` / `.json` | メタタグ（category 5） |
-| `danbooru-comfyui.txt` | ComfyUI-Custom-Scripts の `autocomplete.txt` 互換（`tag,count`・アンダースコア保持） |
-| `meta.json` | 生成日時・カテゴリ別件数などの要約 |
+| `danbooru.csv` | 全カテゴリ4列（a1111-sd-webui-tagcomplete 互換） |
+| `danbooru-ja.csv` | 全カテゴリ5列（4列＋日本語）※ `--emit-merged-ja` 指定時のみ |
+| `danbooru-jp.csv` | 全カテゴリ2列（タグ,日本語／訳のあるものだけ） |
+| `tags.json` | 全カテゴリJSON（`ja` フィールドあり） |
+| `danbooru-<category>.csv` / `.json` / `-ja.csv` / `-jp.csv` | カテゴリ別 |
+| `danbooru-comfyui.txt` | ComfyUI-Custom-Scripts の `autocomplete.txt` 互換 |
+| `meta.json` | 生成日時・件数・日本語の取得元内訳 |
 
-作者・作品名・キャラクタータグは1タグあたりの投稿数が一般タグより少ない
-傾向があるため、それぞれ個別のしきい値・取得ページ数上限を持っています
-（既定値は `fetch_danbooru_tags.py --help` を参照。`--min-count-characters` の
-ように上書き可能）。マイナーな版権・キャラも一般タグと同じ基準で切り捨てると
-大量に漏れてしまうため、この分離が「作者・作品名・キャラクター・その他への
-分類取得」の主眼です。
+カテゴリは general(0) / artists(1) / copyrights(3) / characters(4) / meta(5) です。
+作者・作品名・キャラクタータグは1タグあたりの投稿数が一般タグより少ない傾向が
+あるため、それぞれ個別のしきい値・取得ページ数上限を持っています。マイナーな
+版権・キャラを一般タグと同じ基準で切り捨てると大量に漏れるためです。
 
 依存ライブラリなし（標準ライブラリのみ）で動きますが、`pip install certifi`
-しておくと、OS側の証明書ストアの状態に依存せず安定します（後述）。
-Python 3.9+ で動作します。
+しておくと、OS側の証明書ストアの状態に依存せず安定します。Python 3.9+ で動作します。
 
-## 「certificate has expired」エラーが出たら
+## 日本語訳の2つの供給源
 
-Danbooru自体の証明書が期限切れということはまずありません（Let's Encryptで
-自動更新されています）。ほぼ確実にローカル環境側の問題です。
+Danbooruに翻訳APIはありません。代わりに次の2つを使います。
 
-1. PCの時計・日付が正しいか確認する（一番多い原因）。
-2. `pip install certifi` してから再実行する。このスクリプトはcertifiが
-   入っていれば自動的にそれを使う（Windowsのローカル証明書ストアが古い/
-   壊れているケースを回避できる）。
-3. それでも直らない場合、常駐のウイルス対策ソフトや社内・VPNのプロキシが
-   HTTPS通信を横取りしていないか確認する。
+**1. Danbooru wikiの `other_names`（`--wiki-names`）**
+
+各タグのwikiページには、タイトル下にバブルで並ぶ別名リストがあります。実質的に
+pixivのタグで、キャラ・作品・絵師については人手で入力された日本語名が入っています。
+これが最も質の高い供給源です。wikiページを全件walkするので数分かかります。
+
+`other_names` には中国語・韓国語・ローマ字の別名も同居しています
+（例：`uchi_no_hime-sama_ga_ichiban_kawaii` は `ウチの姫さまがいちばんカワイイ`
+と `我家公主最可爱` の両方を持つ）。中国語も同じ漢字を使うため、
+**かな（ひらがな・カタカナ）を含む候補を優先**し、かなが1つも無い場合だけ
+漢字のみの候補にフォールバックしています。
+
+**2. コミュニティ製の翻訳CSV（`--translation-csv`）**
+
+`<英語タグ/エイリアス>,<日本語>` の2列CSVを読みます。wikiに載っていない
+一般タグを埋める用途です。カンマ区切りで複数指定でき、**先に書いたものが優先**
+されるので、手動整備の小さいファイルを機械翻訳の大きいファイルより前に置きます。
+
+```
+--translation-csv "curated-jp.csv,https://.../danbooru-machine-jp.csv"
+```
+
+既定の優先順位は **wiki > CSV** です。`--prefer-csv-names` で反転できます。
+
+> boorutan/booru-japanese-tag の `danbooru-jp.csv` は手動訳のみで**427件**しか
+> ありません。全体を埋めたい場合は同リポジトリの `danbooru-machine-jp.csv`
+> （約10万件・Google翻訳ベース）を併用してください。
 
 ## 手元で試す
 
 ```bash
-python3 fetch_danbooru_tags.py --out-dir dist
+python3 fetch_danbooru_tags.py --out-dir dist --wiki-names --emit-merged-ja \
+  --translation-csv "https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-jp.csv,https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-machine-jp.csv"
 ```
 
-これだけで作者・作品名・キャラクター・一般・メタの5カテゴリを既定のしきい値で
-まとめて取得します。一部だけで良い場合は絞り込めます：
+処理は次の順に進みます。リクエスト間に1秒スリープするため、合計15〜25分程度です。
 
-```bash
-# キャラクターと作品名だけ、キャラは投稿数5以上まで拾う
-python3 fetch_danbooru_tags.py --out-dir dist \
-  --categories characters,copyrights --min-count-characters 5
+| 段階 | ログ | 目安 |
+|---|---|---|
+| エイリアス取得 | `fetching aliases page N...` | 約30秒 |
+| wiki別名取得 | `wiki query OK:` → `fetching wiki other_names page N...` | 数分 |
+| 翻訳CSV読込 | `loaded N translations in total` | 数秒 |
+| タグ本体取得 | `fetching <category> tags page N...` | 5〜10分 |
+
+主なオプション：
+
+```
+--wiki-names              wikiのother_namesを取得して日本語欄に使う
+--emit-merged-ja          danbooru-ja.csv（5列）を追加出力する
+--prefer-csv-names        翻訳CSVをwikiより優先する
+--skip-aliases            エイリアス取得を省略（動作確認を急ぐとき）
+--categories characters,copyrights     取得するカテゴリを絞る
+--min-count-<category>    その投稿数未満のタグを間引く
+--max-pages-<category>    取得ページ数の上限（×1000件）
+--max-pages-wiki          wikiページの walk 上限（既定400＝40万件）
+--retries                 HTTPリトライ回数（既定7）
+--request-interval        リクエスト間隔の秒数（既定1.0）
+--debug-wiki <タグ名>      1タグ分のwiki応答を表示して終了
 ```
 
-- `--max-pages-<category>`（例：`--max-pages-characters`）× `limit=1000` が
-  そのカテゴリの取得件数上限です。Danbooruのタグ一覧APIはoffsetがある程度
-  深くなるとエラーを返すため、無理にページを増やしすぎないようにしています。
-- `--min-count-<category>` 未満の使用数タグは間引きます。
-- 日本語訳を混ぜたい場合：
+## うまくいかないときの切り分け
 
-```bash
-python3 fetch_danbooru_tags.py --out-dir dist \
-  --translation-csv https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-jp.csv
-```
+**日本語がほとんど入らない**
 
-  `<英語タグ/エイリアス>,<日本語>` の2列CSVならどれでも読めます
-  （boorutan/booru-japanese-tag の danbooru-jp.csv、himamon/ComfyUIJapaneseTagAutoCompleteCSV
-  の統合版などが実例としてGitHub上にあります）。ローカルファイルのパスでも可。
+`dist/meta.json` の `ja_source_counts` を見てください。
 
-出力される `dist/tags.json`（または `dist/danbooru-characters.json` などカテゴリ別ファイル）は
-「タグ台帳」の設定モーダル→②タグ自動補完の辞書→「候補リストをJSONから追加」で
-そのまま読み込めます。カテゴリ別ファイルを1つずつ順番に読み込ませても、
-最終的に同じ辞書にマージされます。`dist/danbooru.csv` は
-a1111-sd-webui-tagcomplete 等のbooruタグ補完拡張とも互換の4列フォーマット、
-`dist/danbooru-comfyui.txt` は ComfyUI-Custom-Scripts の `autocomplete.txt` に
-そのまま差し替えて使えます（「タグ台帳」側でも `tag,count` 形式として
-自動判別して読み込めます）。
+- `wiki` が0に近い → wiki取得が空振りしています。`--debug-wiki hatsune_miku`
+  で単体の応答を確認してください。APIの応答形式が変わっている可能性があります。
+- `csv` が0に近い → `--translation-csv` のURLかパスが間違っています。
+  ログの `loaded N translations in total` が0になっていないか確認してください。
+
+**途中で止まる／件数が想定より少ない**
+
+ログのページ番号を確認してください。`fetched other_names for 1,145 wiki pages`
+のように極端に少ない場合は、ページングが早期に打ち切られています
+（20万件前後が正常）。5,000件を下回ると警告が出ます。
+
+**「certificate has expired」**
+
+Danbooru側の証明書ではなく、ほぼローカル環境の問題です。
+(1) PCの時計・日付を確認、(2) `pip install certifi` して再実行、
+(3) ウイルス対策ソフトや社内プロキシのHTTPS横取りを確認、の順に試してください。
+
+**HTTP 520 / IncompleteRead などで落ちる**
+
+Danbooru前段のCloudflareの一時的な不調です。指数バックオフで自動リトライ
+しますが、頻発する場合は `--retries 12 --request-interval 2.0` を試してください。
 
 ## 自動更新にする
 
 1. このフォルダをGitHubリポジトリにpush。
-2. （任意）Settings → Secrets and variables → Actions → **Variables**タブ（Secretsではない）→
-   New repository variable で `TRANSLATION_CSV_URL` を追加し、使いたい翻訳CSVのraw URLを
-   値として入れる（例：`https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-jp.csv`）。
-   ワークフローがこの値をそのまま `--translation-csv` に渡します。未設定でもエラーには
-   ならず、単に日本語訳なしで出力されるだけです。
+2. Settings → Secrets and variables → Actions → **Variables**タブ（Secretsではない）→
+   New repository variable で `TRANSLATION_CSV_URL` を追加。推奨値：
+
+   ```
+   https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-jp.csv,https://raw.githubusercontent.com/boorutan/booru-japanese-tag/main/danbooru-machine-jp.csv
+   ```
+
+   未設定でもエラーにはならず、wiki由来の日本語だけが入ります。
 3. Settings → Actions → General → Workflow permissions を
-   "Read and write permissions" にしておく（`dist/` への自動コミットに必要）。
-4. あとは毎週月曜（cronは `.github/workflows/update-tags.yml` で調整可）に
-   自動実行され、Danbooruから再取得 → `dist/`以下を再生成 → 差分があれば自動コミット・push、
-   という流れが無人で回ります。Actionsタブの「Run workflow」ボタンから手動実行もできます。
+   "Read and write permissions" にする（`dist/` への自動コミットに必要）。
+4. 毎週月曜に自動実行され、再取得 → `dist/` 再生成 → 差分があれば自動コミット・push
+   という流れが無人で回ります。Actionsタブの「Run workflow」から手動実行もできます。
+
+ワークフローには **Sanity check** ステップが入っています。タグ件数が10万件を
+下回る、日本語の割合が40%を下回る、`--wiki-names` を付けたのにwiki由来が1万件
+未満、のいずれかに該当するとコミット前に失敗させます。過去に、翻訳ソースの
+取り違えやページングの不具合で日本語がほぼ空のまま「正常終了」したことがあり、
+壊れたデータが公開されるのを防ぐためのものです。
+
+## リポジトリサイズについて
+
+`--emit-merged-ja` を付けると `-ja.csv` 系が増え、`dist/` は合計30MB前後に
+なります（`danbooru-ja.csv` 単体で約7MB）。毎週コミットされるので、
+gitの差分圧縮が効くとはいえ履歴は着実に増えます。気になる場合は
+`--categories` で対象を絞るか、`--emit-merged-ja` を外して
+`danbooru.csv` + `danbooru-jp.csv` の2本立てで運用してください。
 
 ## Hugging Face Datasetsへの配布（任意）
 
@@ -109,20 +161,12 @@ GitHubのdist/フォルダをそのまま参照してもらう形でも十分で
 「タグ辞書だけ」を独立した資産として配りたい場合はHF Datasetsも便利です。
 ワークフローYAML内にコメントアウトで手順を書いてあります。事前に
 HF上でdataset repoを作り、write権限のトークンを `HF_TOKEN` として
-Secretsに登録すれば、`huggingface_hub` 経由で `dist/` の中身を
-そのままpushできます。
+Secretsに登録すれば、`huggingface_hub` 経由で `dist/` の中身をpushできます。
 
 ## できないこと・注意点
 
-- 私（Claude）自身がこのcronジョブを継続的に代行実行することはできません。
-  実行主体は自分のGitHubリポジトリ（＝自分のGitHub Actions実行時間）です。
-  他のプロジェクト同様、自分でホストする形になります。
 - Danbooru APIには明確なレート制限値が公開されていないため、本スクリプトは
-  リクエスト間に1秒スリープを入れる程度に留めています。極端に頻度を
-  上げるcron設定（毎時など）は避けてください。週1回程度で十分タグ・
-  カウントの変化は追従できます。
-- 5カテゴリまとめて取得する分、以前より実行時間が伸びます（既定値のフル取得で
-  数分〜十数分程度が目安）。GitHub Actions側は `timeout-minutes: 45` を設定
-  済みですが、`--max-pages-*` を絞ればもっと短くできます。
-- 日本語訳はDanbooru自体には存在しないため、コミュニティ製の翻訳CSVに
-  依存します。訳が古い/一部機械翻訳である点は元データの性質上ご了承ください。
+  リクエスト間に1秒スリープを入れる程度に留めています。極端に頻度を上げる
+  cron設定（毎時など）は避けてください。週1回で十分追従できます。
+- 日本語訳のうち翻訳CSV由来の分は機械翻訳を含みます。元データの性質上、
+  不自然な訳や誤訳が残る点はご了承ください。
