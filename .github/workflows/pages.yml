@@ -1,15 +1,17 @@
 name: Deploy tag recipe page
 
-# dist/ が更新されたら（＝タグ更新ワークフローが走った後）Pages を作り直す。
-# 手動実行もできる。
+# dist/ が更新されたら Pages を作り直す。
+# 注意: update-tags.yml の push は GITHUB_TOKEN で行われるため、
+# push イベントでは起動しない。そのため workflow_run を併用する。
 on:
   push:
     branches: [main]
     paths:
       - 'web/**'
-      - 'dist/danbooru-ja.csv'
-      - 'dist/meta.json'
       - '.github/workflows/pages.yml'
+  workflow_run:
+    workflows: ["Update Danbooru tag list"]
+    types: [completed]
   workflow_dispatch: {}
 
 permissions:
@@ -17,29 +19,31 @@ permissions:
   pages: write
   id-token: write
 
-# 同時に走らせない。走行中のデプロイはキャンセルせず終わらせる。
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   deploy:
+    # タグ更新が失敗した回はデプロイしない（壊れた dist/ を公開しないため）
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main   # workflow_run 経由でも bot の最新コミットを確実に拾う
 
       - name: Assemble site
         run: |
           mkdir -p _site/data
           cp web/index.html _site/index.html
-          # dist/ 全部ではなく、ページが実際に読む2ファイルだけ置く。
-          # danbooru-ja.csv は update-tags.yml 側で --emit-merged-ja を付けて生成すること。
           cp dist/danbooru-ja.csv _site/data/danbooru-ja.csv
-          cp dist/meta.json       _site/data/meta.json
-          # Jekyll を通さない（_ で始まるパスやテンプレート記法の誤解釈を避ける）
+          cp dist/meta.json _site/data/meta.json
           touch _site/.nojekyll
           ls -la _site _site/data
 
