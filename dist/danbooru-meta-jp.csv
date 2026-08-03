@@ -21,8 +21,8 @@ partial commentary,部分的な解説
 artist request,アーティストのリクエスト
 animated,アニメーション
 paid reward available,付费内容
-copyright request,著作権リクエスト
 traditional media,アナログ
+copyright request,著作権リクエスト
 md5 mismatch,MD5ミスマッチ
 lowres,ローレス
 skeb commission,マブラヴSkeb部
@@ -49,8 +49,8 @@ jpeg artifacts,JPEGアーティファクト
 inactive account,非アクティブアカウント
 pixel-perfect duplicate,ピクセルに最適な複製
 textless version,文字なし差分
-animated gif,GIFアニメ
 bad source,悪いソース
+animated gif,GIFアニメ
 photo (medium),照片
 bad tumblr id,悪いTumblr ID
 derivative work,パクリ
@@ -58,11 +58,11 @@ partially translated,部分的に翻訳されています
 unfinished,ボツ
 check commentary,检查解说翻译
 ugoira,うごイラ
-looping animation,ぬるぬる動く
 watercolor (medium),すいさい
+looping animation,ぬるぬる動く
 dated commentary,日付の解説
-tall image,背の高い画像
 marker (medium),コピック
+tall image,背の高い画像
 paid reward,有料の報酬
 ai-generated,AIねこみみ部
 source smaller,ソースが小さくなります
@@ -86,8 +86,8 @@ official wallpaper,公式の壁紙
 colorized,塗ってみた
 novel illustration,ライトノベル
 bad deviantart id,悪いdeviantArt id
-patreon reward,パトレオン報酬
 official artist extra,本家
+patreon reward,パトレオン報酬
 off-topic,オフトピック
 has bad revision,改訂が悪い
 concept art,コンセプトアート
@@ -108,17 +108,18 @@ making-of,タイムラプス
 artbook,画集
 pixiv sample,pixivサンプル
 voice drama available,ボイスドラマ
+mixed media,混合メディア
 flower request,フラワーリクエスト
 check copyright,著作権を確認してください
-mixed media,混合メディア
 archived source,アーカイブソース
-blender (medium),ブレンダー（中）
 english audio,英語の音声
+blender (medium),ブレンダー（中）
 scan artifacts,アーティファクトをスキャンします
 fanbox reward,ファンボックスの報酬
-annotated,注釈
 alternate language,正規翻訳版
+annotated,注釈
 has censored revision,検閲された改訂があります
+tagme,私をタグして
 fan request,リクエスト
 romaji commentary,ロマジの解説
 live2d,Live2d
@@ -136,10 +137,9 @@ downscaled,ダウンスケール
 gift art,ギフトアート
 production art,概念图
 gender request,性別リクエスト
-tagme,私をタグして
 bad bcy id,悪いbcy id
-wide image,広い画像
 bad drawr id,悪いdrawr id
+wide image,広い画像
 millipen (medium),ミリペン
 food request,フードリクエスト
 russian commentary,ロシアの解説
@@ -159,8 +159,8 @@ commentary typo,解説タイプミス
 nib pen (medium),つけペン
 art study,習作
 third-party watermark,サードパーティの透かし
-bad hentai foundry id,悪いヘンタイの根拠ID
 decensored,ディレクレッド
+bad hentai foundry id,悪いヘンタイの根拠ID
 engrish commentary,刻印解説
 bad patreon id,悪いパトレオンID
 album cover redraw,ジャケパロ
@@ -174,14 +174,14 @@ koikatsu (medium),コイカツ!
 flash,閃光
 aliasing,エイリアシング
 microsoft paint (medium),MSペイント
-comic panel redraw,漫画パネルのredRaw
 paint chat (medium),絵ちゃ
+comic panel redraw,漫画パネルのredRaw
 headwear request,帽子のリクエスト
 mikumikudance (medium),Mikumikudance（中）
 annotation request,注釈リクエスト
 ballpoint pen (medium),ボールペン
-fantia reward,ファンタの報酬
 source mismatch,ソースの不一致
+fantia reward,ファンタの報酬
 bad instagram id,悪いInstagram ID
 ink (medium),インク（中）
 bad poipiku id,悪いpoipiku id
@@ -196,31 +196,31 @@ enty reward,魅力的な報酬
 calligraphy brush (medium),筆ペン
 watercolor pencil (medium),水彩色鉛筆
 bad fanbox id,悪いファンボックスID
+french commentary,フランスの解説
 waifu2x,waifu2x
 twitter sample,Twitterサンプル
 tumblr sample,Tumblrサンプル
-french commentary,フランスの解説
 ruffle compatible,互換性のあるフリル
 indonesian commentary,インドネシアの解説
 hard-translated (non-english),ハード翻訳（英語以外）
 krita (medium),クリタ（中）
 pastel (medium),パステル
-vehicle request,車両リクエスト
 epilepsy warning,パカパカ演出
-eyecatch,アイキャッチ
-bad artstation id,悪いアートステーションID
+vehicle request,車両リクエスト
 costume request,コスチュームリクエスト
+bad artstation id,悪いアートステーションID
+eyecatch,アイキャッチ
 source filmmaker (medium),ソースフィルムメーカー（ミディアム）
-corrupted metadata,破損したメタデータ
-parody request,パロディリクエスト
 countdown illustration,カウントダウンイラスト
+parody request,パロディリクエスト
+corrupted metadata,破損したメタデータ
+portuguese commentary,ポルトガルの解説
 contest winner,コンテストの勝者
 bad yandere id,悪いヤンデレID
 24-hour relay,24h接力
-reverse translation,逆翻訳
 e-hentai sample,e-Hentaiサンプル
+reverse translation,逆翻訳
 artstation sample,アートステーションサンプル
-portuguese commentary,ポルトガルの解説
 mousepad (medium),立体マウスパッド
 partially annotated,部分的に注釈が付けられました
 deviantart sample,DeviantArtサンプル
@@ -230,16 +230,16 @@ rotated,回転
 exif rotation,exif回転
 headshop,ヘッドショップ
 cosplay request,コスプレリクエスト
+official art redraw,公式絵を元に自分絵で描くタグ
 german commentary,ドイツの解説
 yandere sample,Yandereサンプル
-official art redraw,公式絵を元に自分絵で描くタグ
 vietnamese commentary,ベトナムの解説
 game model,ゲームモデル
-hairstyle request,ヘアスタイルのリクエスト
 medium request,中程度のリクエスト
 corrupted file,破損したファイル
 animal request,動物のリクエスト
 emofuri,えもふり
+hairstyle request,ヘアスタイルのリクエスト
 magazine request,雑誌のリクエスト
 plant request,植物のリクエスト
 has watermarked revision,透かし式の改訂があります
@@ -276,8 +276,8 @@ nai diffusion,nai拡散
 acrylic stand (medium),アクリルスタンド(媒体)
 hair ornament request,髪の飾りリクエスト
 blueprint (medium),図面
-check source,ソースを確認してください
 song request,歌のリクエスト
+check source,ソースを確認してください
 bad tinami id,悪いティナミID
 bad aspect ratio,悪いアスペクト比
 gesture request,ジェスチャーリクエスト
@@ -293,29 +293,29 @@ neckwear request,ネックウェアのリクエスト
 color banding,カラーバンド
 lego (medium),レゴ
 food art (medium),食べ物絵
-nicoseiga sample,nicoseigaサンプル
 paper cutout (medium),切り絵
+nicoseiga sample,nicoseigaサンプル
 animal ear request,動物の耳のリクエスト
 bad drawcrowd id,悪いdrawcrowd ID
 cleaned,掃除
 nurimas,塗りマス
-location request,ロケーションリクエスト
 crayon (medium),クレヨン
 color issue,色の問題
 twitter banner,Twitterバナー
 stop motion animation,コマ撮り
 model kit (medium),ガンプラ
 kisekae,kisekae
+location request,ロケーションリクエスト
 brush (medium),ブラシ（中）
 fish request,魚のリクエスト
 poorly translated,翻訳が不十分です
-avatar generator,アバタージェネレーター
 rotoscoping,ロトスコープ
-cursor (medium),マウスカーソル
+avatar generator,アバタージェネレーター
 has lossy revision,損失のある改訂があります
+cursor (medium),マウスカーソル
 animatic,アニマティック
-huashijie (medium),画世界
 instrument request,機器のリクエスト
+huashijie (medium),画世界
 vrchat (medium),VRチャット
 3d custom girl,3Dカスタム少女
 binding discoloration,結合変色
