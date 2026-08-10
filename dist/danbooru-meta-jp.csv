@@ -45,21 +45,21 @@ resolution mismatch,解像度の不一致
 painting (medium),絵の具
 self-upload,セルフアップロード
 third-party edit,二改
-jpeg artifacts,JPEGアーティファクト
 inactive account,非アクティブアカウント
-pixel-perfect duplicate,ピクセルに最適な複製
+jpeg artifacts,JPEGアーティファクト
 textless version,文字なし差分
-bad source,悪いソース
+pixel-perfect duplicate,ピクセルに最適な複製
 animated gif,GIFアニメ
+bad source,悪いソース
 photo (medium),照片
-bad tumblr id,悪いTumblr ID
 derivative work,パクリ
+bad tumblr id,悪いTumblr ID
 partially translated,部分的に翻訳されています
 unfinished,ボツ
 check commentary,检查解说翻译
 ugoira,うごイラ
-watercolor (medium),すいさい
 looping animation,ぬるぬる動く
+watercolor (medium),すいさい
 dated commentary,日付の解説
 marker (medium),コピック
 tall image,背の高い画像
@@ -71,8 +71,8 @@ alt text,altテキスト
 promotional art,宣伝絵
 painttool sai (medium),ペイントツールSAI
 cropped,抠图
-source larger,ソースが大きくなります
 making-of available,メイキング
+source larger,ソースが大きくなります
 commissioner upload,コミッショナーのアップロード
 graphite (medium),シャープペンシル
 imageboard desourced,イメージボードが脱却されました
@@ -85,17 +85,17 @@ artist collaboration,合作
 official wallpaper,公式の壁紙
 colorized,塗ってみた
 novel illustration,ライトノベル
-bad deviantart id,悪いdeviantArt id
 official artist extra,本家
 patreon reward,パトレオン報酬
+bad deviantart id,悪いdeviantArt id
 off-topic,オフトピック
 has bad revision,改訂が悪い
 concept art,コンセプトアート
 ai-assisted,AI+手書き
 procreate (medium),プロクリエイト
 colored pencil (medium),色鉛筆
-hard-translated,ハード翻訳
 magazine scan,雑誌スキャン
+hard-translated,ハード翻訳
 clothing request,衣類のリクエスト
 resized,补分辨率
 pen (medium),ペン（中）
@@ -111,15 +111,14 @@ voice drama available,ボイスドラマ
 mixed media,混合メディア
 flower request,フラワーリクエスト
 check copyright,著作権を確認してください
-archived source,アーカイブソース
 english audio,英語の音声
 blender (medium),ブレンダー（中）
 scan artifacts,アーティファクトをスキャンします
 fanbox reward,ファンボックスの報酬
+tagme,私をタグして
 alternate language,正規翻訳版
 annotated,注釈
 has censored revision,検閲された改訂があります
-tagme,私をタグして
 fan request,リクエスト
 romaji commentary,ロマジの解説
 live2d,Live2d
@@ -128,13 +127,14 @@ redrawn,セルフリメイク
 paint.net (medium),paint.net（中）
 key visual,キービジュアル
 check character,文字を確認してください
+archived source,アーカイブソース
 thai commentary,タイの解説
 check artist,アーティストをチェックしてください
 upscaled,Upscaled
 guest art,応援イラスト
 acrylic paint (medium),アクリル
-downscaled,ダウンスケール
 gift art,ギフトアート
+downscaled,ダウンスケール
 production art,概念图
 gender request,性別リクエスト
 bad bcy id,悪いbcy id
@@ -162,8 +162,8 @@ third-party watermark,サードパーティの透かし
 decensored,ディレクレッド
 bad hentai foundry id,悪いヘンタイの根拠ID
 engrish commentary,刻印解説
-bad patreon id,悪いパトレオンID
 album cover redraw,ジャケパロ
+bad patreon id,悪いパトレオンID
 self-portrait,自画像
 game screenshot,ゲームスクリーンショット
 detexted,剥離しました
@@ -173,8 +173,8 @@ bad nijie id,悪いnijie id
 koikatsu (medium),コイカツ!
 flash,閃光
 aliasing,エイリアシング
-microsoft paint (medium),MSペイント
 paint chat (medium),絵ちゃ
+microsoft paint (medium),MSペイント
 comic panel redraw,漫画パネルのredRaw
 headwear request,帽子のリクエスト
 mikumikudance (medium),Mikumikudance（中）
@@ -204,9 +204,9 @@ ruffle compatible,互換性のあるフリル
 indonesian commentary,インドネシアの解説
 hard-translated (non-english),ハード翻訳（英語以外）
 krita (medium),クリタ（中）
+vehicle request,車両リクエスト
 pastel (medium),パステル
 epilepsy warning,パカパカ演出
-vehicle request,車両リクエスト
 costume request,コスチュームリクエスト
 bad artstation id,悪いアートステーションID
 eyecatch,アイキャッチ
@@ -216,14 +216,14 @@ parody request,パロディリクエスト
 corrupted metadata,破損したメタデータ
 portuguese commentary,ポルトガルの解説
 contest winner,コンテストの勝者
-bad yandere id,悪いヤンデレID
 24-hour relay,24h接力
-e-hentai sample,e-Hentaiサンプル
+bad yandere id,悪いヤンデレID
 reverse translation,逆翻訳
+e-hentai sample,e-Hentaiサンプル
 artstation sample,アートステーションサンプル
+deviantart sample,DeviantArtサンプル
 mousepad (medium),立体マウスパッド
 partially annotated,部分的に注釈が付けられました
-deviantart sample,DeviantArtサンプル
 papercraft (medium),ペーパークラフト（中程度）
 tegaki draw and tweet,テガキは描画とツイートを描きます
 rotated,回転
@@ -239,33 +239,33 @@ medium request,中程度のリクエスト
 corrupted file,破損したファイル
 animal request,動物のリクエスト
 emofuri,えもふり
-hairstyle request,ヘアスタイルのリクエスト
 magazine request,雑誌のリクエスト
 plant request,植物のリクエスト
+hairstyle request,ヘアスタイルのリクエスト
 has watermarked revision,透かし式の改訂があります
 animated png,アニメーションpng
 ugoira conversion,ウゴイラ変換
 bird request,鳥のリクエスト
-masking tape (medium),マスキングテープ
 zbrush (medium),Zbrush（中）
+masking tape (medium),マスキングテープ
 flower stand art,フラスタイラスト
 bad pawoo id,悪いPawoo ID
-color ink (medium),カラーインク
 ai-generated background,AI生成背景
+color ink (medium),カラーインク
 lossless-lossy,ロスレス損失
 app filter,ガラスエフェクト
 reversed,逆
 medibang paint (medium),メディバンペイント
 italian commentary,イタリアの解説
-has cropped revision,修正をトリミングしました
 roulette animation,ルーレットGIF
-color halftone,カラーハーフトーン
+has cropped revision,修正をトリミングしました
 mecha request,メカリクエスト
+color halftone,カラーハーフトーン
 flipnote studio (medium),うごメモ
 gif artifacts,GIFアーティファクト
 collage (medium),コラージュ
-character counter request,文字カウンターリクエスト
 gouache (medium),ガッシュ
+character counter request,文字カウンターリクエスト
 download link,ダウンロードリンク
 gumroad reward,ガムロード報酬
 non-repeating animation,非回復アニメーション
@@ -275,14 +275,14 @@ reference request,参照リクエスト
 nai diffusion,nai拡散
 acrylic stand (medium),アクリルスタンド(媒体)
 hair ornament request,髪の飾りリクエスト
-blueprint (medium),図面
 song request,歌のリクエスト
+blueprint (medium),図面
 check source,ソースを確認してください
 bad tinami id,悪いティナミID
-bad aspect ratio,悪いアスペクト比
 gesture request,ジェスチャーリクエスト
-flash game,フラッシュゲーム
+bad aspect ratio,悪いアスペクト比
 recolored,再び復活しました
+flash game,フラッシュゲーム
 bad newgrounds id,悪いnewgrounds id
 autodesk 3ds max (medium),Autodesk 3DS Max（Medium）
 fixed,修理済み
@@ -299,37 +299,37 @@ animal ear request,動物の耳のリクエスト
 bad drawcrowd id,悪いdrawcrowd ID
 cleaned,掃除
 nurimas,塗りマス
+location request,ロケーションリクエスト
 crayon (medium),クレヨン
 color issue,色の問題
+fish request,魚のリクエスト
 twitter banner,Twitterバナー
 stop motion animation,コマ撮り
 model kit (medium),ガンプラ
 kisekae,kisekae
-location request,ロケーションリクエスト
 brush (medium),ブラシ（中）
-fish request,魚のリクエスト
 poorly translated,翻訳が不十分です
+cursor (medium),マウスカーソル
 rotoscoping,ロトスコープ
 avatar generator,アバタージェネレーター
 has lossy revision,損失のある改訂があります
-cursor (medium),マウスカーソル
-animatic,アニマティック
 instrument request,機器のリクエスト
+animatic,アニマティック
 huashijie (medium),画世界
 vrchat (medium),VRチャット
 3d custom girl,3Dカスタム少女
 binding discoloration,結合変色
-fake translation,偽の翻訳
 print (medium),印刷（中）
+fake translation,偽の翻訳
+charcoal (medium),木炭（中）
 exif thumbnail surprise,サムネイルのサプライズをexif
 airbrush (medium),エアブラシ（中）
 reference photo,参照写真
 bad google+ id,悪いGoogle+ ID
 environment study,背景練習
-charcoal (medium),木炭（中）
 webp-to-png conversion,WebPからPNGへの変換
-bad cghub id,悪いCGHUB ID
 bad e-hentai id,悪いe-Hentai ID
+bad cghub id,悪いCGHUB ID
 clay (medium),软陶
 latte art (medium),ラテアート
 coupy pencil (medium),クーピーペンシル
