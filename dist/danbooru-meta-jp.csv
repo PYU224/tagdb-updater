@@ -39,8 +39,8 @@ check translation,翻訳を確認してください
 pixiv commission,リクエスト絵
 duplicate,重複
 protected link,保護されたリンク
-source request,ソースリクエスト
 sound,音
+source request,ソースリクエスト
 resolution mismatch,解像度の不一致
 painting (medium),絵の具
 self-upload,セルフアップロード
@@ -49,34 +49,34 @@ inactive account,非アクティブアカウント
 jpeg artifacts,JPEGアーティファクト
 textless version,文字なし差分
 pixel-perfect duplicate,ピクセルに最適な複製
-animated gif,GIFアニメ
 bad source,悪いソース
+animated gif,GIFアニメ
 photo (medium),照片
 derivative work,パクリ
 bad tumblr id,悪いTumblr ID
 partially translated,部分的に翻訳されています
 unfinished,ボツ
-check commentary,检查解说翻译
-ugoira,うごイラ
 looping animation,ぬるぬる動く
+ugoira,うごイラ
+check commentary,检查解说翻译
 watercolor (medium),すいさい
 dated commentary,日付の解説
 marker (medium),コピック
 tall image,背の高い画像
-paid reward,有料の報酬
 ai-generated,AIねこみみ部
+paid reward,有料の報酬
 source smaller,ソースが小さくなります
 anime screenshot,动画截图
 alt text,altテキスト
 promotional art,宣伝絵
-painttool sai (medium),ペイントツールSAI
 cropped,抠图
+painttool sai (medium),ペイントツールSAI
 making-of available,メイキング
 source larger,ソースが大きくなります
 commissioner upload,コミッショナーのアップロード
 graphite (medium),シャープペンシル
-imageboard desourced,イメージボードが脱却されました
 audible music,可聴音楽
+imageboard desourced,イメージボードが脱却されました
 clip studio paint (medium),クリスタ
 photo-referenced,写真トレス
 audible speech,可聴スピーチ
@@ -84,8 +84,8 @@ image sample,画像サンプル
 artist collaboration,合作
 official wallpaper,公式の壁紙
 colorized,塗ってみた
-novel illustration,ライトノベル
 official artist extra,本家
+novel illustration,ライトノベル
 patreon reward,パトレオン報酬
 bad deviantart id,悪いdeviantArt id
 off-topic,オフトピック
@@ -94,44 +94,44 @@ concept art,コンセプトアート
 ai-assisted,AI+手書き
 procreate (medium),プロクリエイト
 colored pencil (medium),色鉛筆
+clothing request,衣類のリクエスト
 magazine scan,雑誌スキャン
 hard-translated,ハード翻訳
-clothing request,衣類のリクエスト
 resized,补分辨率
-pen (medium),ペン（中）
 incredibly absurdres,信じられないほど不条理
-bad nicoseiga id,悪いnicoseiga id
+pen (medium),ペン（中）
 spanish commentary,スペイン語の解説
+bad nicoseiga id,悪いnicoseiga id
 screenshot,スクリーンショット
-screenshot redraw,スクリーンキャップの再描画
 making-of,タイムラプス
+screenshot redraw,スクリーンキャップの再描画
+voice drama available,ボイスドラマ
 artbook,画集
 pixiv sample,pixivサンプル
-voice drama available,ボイスドラマ
 mixed media,混合メディア
 flower request,フラワーリクエスト
 check copyright,著作権を確認してください
 english audio,英語の音声
 blender (medium),ブレンダー（中）
 scan artifacts,アーティファクトをスキャンします
-fanbox reward,ファンボックスの報酬
 tagme,私をタグして
+fanbox reward,ファンボックスの報酬
 alternate language,正規翻訳版
+fan request,リクエスト
 annotated,注釈
 has censored revision,検閲された改訂があります
-fan request,リクエスト
 romaji commentary,ロマジの解説
 live2d,Live2d
-stitched,ステッチ
 redrawn,セルフリメイク
-paint.net (medium),paint.net（中）
+stitched,ステッチ
 key visual,キービジュアル
+paint.net (medium),paint.net（中）
 check character,文字を確認してください
 archived source,アーカイブソース
 thai commentary,タイの解説
 check artist,アーティストをチェックしてください
-upscaled,Upscaled
 guest art,応援イラスト
+upscaled,Upscaled
 acrylic paint (medium),アクリル
 gift art,ギフトアート
 downscaled,ダウンスケール
@@ -140,24 +140,24 @@ gender request,性別リクエスト
 bad bcy id,悪いbcy id
 bad drawr id,悪いdrawr id
 wide image,広い画像
-millipen (medium),ミリペン
 food request,フードリクエスト
+millipen (medium),ミリペン
 russian commentary,ロシアの解説
 nude filter,剥ぎコラ
 has downscaled revision,改訂版がダウンしています
 gimp (medium),GIMP（中）
-cosplay photo,コスプレイヤ
-unconventional media,型破りなメディア
 weapon request,武器のリクエスト
+unconventional media,型破りなメディア
+cosplay photo,コスプレイヤ
 alpha transparency,アルファ透明性
-vector trace,ベクトルトレース
 ibispaint (medium),アイビスペイント
+vector trace,ベクトルトレース
 crease,折り目
 lossy-lossless,損失のない
 oil painting (medium),油絵
 commentary typo,解説タイプミス
-nib pen (medium),つけペン
 art study,習作
+nib pen (medium),つけペン
 third-party watermark,サードパーティの透かし
 decensored,ディレクレッド
 bad hentai foundry id,悪いヘンタイの根拠ID
@@ -169,47 +169,48 @@ game screenshot,ゲームスクリーンショット
 detexted,剥離しました
 completion time,完了時間
 end card,エンドカード
-bad nijie id,悪いnijie id
 koikatsu (medium),コイカツ!
+bad nijie id,悪いnijie id
+paint chat (medium),絵ちゃ
 flash,閃光
 aliasing,エイリアシング
-paint chat (medium),絵ちゃ
 microsoft paint (medium),MSペイント
 comic panel redraw,漫画パネルのredRaw
-headwear request,帽子のリクエスト
 mikumikudance (medium),Mikumikudance（中）
+headwear request,帽子のリクエスト
 annotation request,注釈リクエスト
 ballpoint pen (medium),ボールペン
 source mismatch,ソースの不一致
 fantia reward,ファンタの報酬
 bad instagram id,悪いInstagram ID
 ink (medium),インク（中）
+psd available,PSDが利用可能
 bad poipiku id,悪いpoipiku id
 music video,ミュージックビデオ
 60+fps,60+fps
-psd available,PSDが利用可能
 bad weibo id,悪いweibo id
 object request,オブジェクトリクエスト
-pdf available,PDF利用可能
 audible internal cumshot,可聴内部累積
-enty reward,魅力的な報酬
+pdf available,PDF利用可能
+french commentary,フランスの解説
 calligraphy brush (medium),筆ペン
+enty reward,魅力的な報酬
 watercolor pencil (medium),水彩色鉛筆
 bad fanbox id,悪いファンボックスID
-french commentary,フランスの解説
 waifu2x,waifu2x
 twitter sample,Twitterサンプル
 tumblr sample,Tumblrサンプル
 ruffle compatible,互換性のあるフリル
 indonesian commentary,インドネシアの解説
+origins,全てはここから始まった
 hard-translated (non-english),ハード翻訳（英語以外）
 krita (medium),クリタ（中）
-vehicle request,車両リクエスト
 pastel (medium),パステル
 epilepsy warning,パカパカ演出
-costume request,コスチュームリクエスト
+vehicle request,車両リクエスト
 bad artstation id,悪いアートステーションID
 eyecatch,アイキャッチ
+costume request,コスチュームリクエスト
 source filmmaker (medium),ソースフィルムメーカー（ミディアム）
 countdown illustration,カウントダウンイラスト
 parody request,パロディリクエスト
@@ -226,8 +227,8 @@ mousepad (medium),立体マウスパッド
 partially annotated,部分的に注釈が付けられました
 papercraft (medium),ペーパークラフト（中程度）
 tegaki draw and tweet,テガキは描画とツイートを描きます
-rotated,回転
 exif rotation,exif回転
+rotated,回転
 headshop,ヘッドショップ
 cosplay request,コスプレリクエスト
 official art redraw,公式絵を元に自分絵で描くタグ
@@ -239,41 +240,41 @@ medium request,中程度のリクエスト
 corrupted file,破損したファイル
 animal request,動物のリクエスト
 emofuri,えもふり
+hairstyle request,ヘアスタイルのリクエスト
 magazine request,雑誌のリクエスト
 plant request,植物のリクエスト
-hairstyle request,ヘアスタイルのリクエスト
 has watermarked revision,透かし式の改訂があります
 animated png,アニメーションpng
-ugoira conversion,ウゴイラ変換
 bird request,鳥のリクエスト
+ugoira conversion,ウゴイラ変換
 zbrush (medium),Zbrush（中）
 masking tape (medium),マスキングテープ
 flower stand art,フラスタイラスト
-bad pawoo id,悪いPawoo ID
-ai-generated background,AI生成背景
 color ink (medium),カラーインク
+ai-generated background,AI生成背景
+bad pawoo id,悪いPawoo ID
 lossless-lossy,ロスレス損失
 app filter,ガラスエフェクト
 reversed,逆
 medibang paint (medium),メディバンペイント
 italian commentary,イタリアの解説
+gouache (medium),ガッシュ
 roulette animation,ルーレットGIF
 has cropped revision,修正をトリミングしました
-mecha request,メカリクエスト
 color halftone,カラーハーフトーン
+mecha request,メカリクエスト
 flipnote studio (medium),うごメモ
 gif artifacts,GIFアーティファクト
 collage (medium),コラージュ
-gouache (medium),ガッシュ
 character counter request,文字カウンターリクエスト
-download link,ダウンロードリンク
 gumroad reward,ガムロード報酬
+download link,ダウンロードリンク
 non-repeating animation,非回復アニメーション
-thumbnail surprise,サムネイルの驚き
 custom maid 3d 2,カスタムメイド3D2
+thumbnail surprise,サムネイルの驚き
 reference request,参照リクエスト
-nai diffusion,nai拡散
 acrylic stand (medium),アクリルスタンド(媒体)
+nai diffusion,nai拡散
 hair ornament request,髪の飾りリクエスト
 song request,歌のリクエスト
 blueprint (medium),図面
@@ -287,26 +288,26 @@ bad newgrounds id,悪いnewgrounds id
 autodesk 3ds max (medium),Autodesk 3DS Max（Medium）
 fixed,修理済み
 zip available,zipが利用可能
-bleed through,裏写り
 style request,スタイルリクエスト
+bleed through,裏写り
 neckwear request,ネックウェアのリクエスト
 color banding,カラーバンド
 lego (medium),レゴ
+animal ear request,動物の耳のリクエスト
 food art (medium),食べ物絵
 paper cutout (medium),切り絵
 nicoseiga sample,nicoseigaサンプル
-animal ear request,動物の耳のリクエスト
 bad drawcrowd id,悪いdrawcrowd ID
 cleaned,掃除
 nurimas,塗りマス
 location request,ロケーションリクエスト
 crayon (medium),クレヨン
-color issue,色の問題
 fish request,魚のリクエスト
+color issue,色の問題
 twitter banner,Twitterバナー
+kisekae,kisekae
 stop motion animation,コマ撮り
 model kit (medium),ガンプラ
-kisekae,kisekae
 brush (medium),ブラシ（中）
 poorly translated,翻訳が不十分です
 cursor (medium),マウスカーソル
@@ -321,26 +322,26 @@ vrchat (medium),VRチャット
 binding discoloration,結合変色
 print (medium),印刷（中）
 fake translation,偽の翻訳
+airbrush (medium),エアブラシ（中）
 charcoal (medium),木炭（中）
 exif thumbnail surprise,サムネイルのサプライズをexif
-airbrush (medium),エアブラシ（中）
 reference photo,参照写真
 bad google+ id,悪いGoogle+ ID
 environment study,背景練習
 webp-to-png conversion,WebPからPNGへの変換
-bad e-hentai id,悪いe-Hentai ID
 bad cghub id,悪いCGHUB ID
+bad e-hentai id,悪いe-Hentai ID
 clay (medium),软陶
 latte art (medium),ラテアート
+midjourney,ミッドジャーニー
 coupy pencil (medium),クーピーペンシル
 noise reduction,ノイズ減少
 wallpaper forced,壁紙が強制されました
-midjourney,ミッドジャーニー
 reference work request,参照作業リクエスト
 drawcrowd sample,DrawCrowdサンプル
 fantia commission,ファンタ委員会
 scan dust,ほこりをスキャンします
-konachan sample,コナチャンのサンプル
 unity (medium),ユニティ
+konachan sample,コナチャンのサンプル
 aircraft request,航空機のリクエスト
 amigurumi (medium),編みぐるみ
