@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-17T04:09:22Z",
-  "tag_count_total": 186530,
-  "translated_count_total": 127445,
-  "translated_ratio": 0.6832,
+  "generated_at": "2026-08-24T04:12:16Z",
+  "tag_count_total": 186699,
+  "translated_count_total": 127523,
+  "translated_ratio": 0.683,
   "by_category": {
-    "general": 36385,
+    "general": 36488,
     "artists": 50000,
-    "copyrights": 19552,
+    "copyrights": 19616,
     "characters": 80000,
-    "meta": 593
+    "meta": 595
   },
   "translated_by_category": {
-    "general": 25305,
-    "artists": 29206,
-    "copyrights": 14966,
-    "characters": 57621,
+    "general": 25341,
+    "artists": 29182,
+    "copyrights": 15010,
+    "characters": 57643,
     "meta": 347
   },
   "translation_sources": [
@@ -30,9 +30,9 @@
     }
   ],
   "ja_source_counts": {
-    "wiki": 81364,
-    "csv": 46081,
-    "none": 59085
+    "wiki": 81487,
+    "csv": 46036,
+    "none": 59176
   },
   "wiki_other_names_used": true
 }
