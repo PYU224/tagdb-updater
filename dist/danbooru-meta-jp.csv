@@ -35,8 +35,8 @@ video,動画(WebMまたはmp4)
 character request,文字リクエスト
 bad link,悪いリンク
 spoilers,ネタバレ
-check translation,翻訳を確認してください
 pixiv commission,リクエスト絵
+check translation,翻訳を確認してください
 duplicate,重複
 protected link,保護されたリンク
 sound,音
@@ -44,14 +44,14 @@ source request,ソースリクエスト
 resolution mismatch,解像度の不一致
 painting (medium),絵の具
 self-upload,セルフアップロード
-third-party edit,二改
 inactive account,非アクティブアカウント
-jpeg artifacts,JPEGアーティファクト
+third-party edit,二改
 textless version,文字なし差分
+jpeg artifacts,JPEGアーティファクト
 pixel-perfect duplicate,ピクセルに最適な複製
 photo (medium),照片
-bad source,悪いソース
 animated gif,GIFアニメ
+bad source,悪いソース
 derivative work,パクリ
 bad tumblr id,悪いTumblr ID
 partially translated,部分的に翻訳されています
@@ -62,16 +62,16 @@ check commentary,检查解说翻译
 watercolor (medium),すいさい
 dated commentary,日付の解説
 marker (medium),コピック
-tall image,背の高い画像
 ai-generated,AIねこみみ部
+tall image,背の高い画像
 paid reward,有料の報酬
 source smaller,ソースが小さくなります
 anime screenshot,动画截图
 alt text,altテキスト
-promotional art,宣伝絵
 cropped,抠图
-painttool sai (medium),ペイントツールSAI
+promotional art,宣伝絵
 making-of available,メイキング
+painttool sai (medium),ペイントツールSAI
 source larger,ソースが大きくなります
 commissioner upload,コミッショナーのアップロード
 graphite (medium),シャープペンシル
@@ -102,10 +102,10 @@ incredibly absurdres,信じられないほど不条理
 pen (medium),ペン（中）
 spanish commentary,スペイン語の解説
 bad nicoseiga id,悪いnicoseiga id
-screenshot,スクリーンショット
 making-of,タイムラプス
-screenshot redraw,スクリーンキャップの再描画
+screenshot,スクリーンショット
 voice drama available,ボイスドラマ
+screenshot redraw,スクリーンキャップの再描画
 artbook,画集
 pixiv sample,pixivサンプル
 mixed media,混合メディア
@@ -136,17 +136,17 @@ gift art,ギフトアート
 production art,概念图
 downscaled,ダウンスケール
 gender request,性別リクエスト
-archived source,アーカイブソース
 bad bcy id,悪いbcy id
 bad drawr id,悪いdrawr id
+archived source,アーカイブソース
 wide image,広い画像
 food request,フードリクエスト
 millipen (medium),ミリペン
 russian commentary,ロシアの解説
 nude filter,剥ぎコラ
 has downscaled revision,改訂版がダウンしています
-gimp (medium),GIMP（中）
 weapon request,武器のリクエスト
+gimp (medium),GIMP（中）
 unconventional media,型破りなメディア
 cosplay photo,コスプレイヤ
 alpha transparency,アルファ透明性
@@ -160,11 +160,11 @@ art study,習作
 nib pen (medium),つけペン
 third-party watermark,サードパーティの透かし
 decensored,ディレクレッド
-bad hentai foundry id,悪いヘンタイの根拠ID
 engrish commentary,刻印解説
+bad hentai foundry id,悪いヘンタイの根拠ID
+bad patreon id,悪いパトレオンID
 album cover redraw,ジャケパロ
 self-portrait,自画像
-bad patreon id,悪いパトレオンID
 game screenshot,ゲームスクリーンショット
 detexted,剥離しました
 completion time,完了時間
@@ -182,11 +182,11 @@ annotation request,注釈リクエスト
 source mismatch,ソースの不一致
 ballpoint pen (medium),ボールペン
 fantia reward,ファンタの報酬
-bad instagram id,悪いInstagram ID
 psd available,PSDが利用可能
+bad instagram id,悪いInstagram ID
 ink (medium),インク（中）
-bad poipiku id,悪いpoipiku id
 music video,ミュージックビデオ
+bad poipiku id,悪いpoipiku id
 bad weibo id,悪いweibo id
 60+fps,60+fps
 object request,オブジェクトリクエスト
@@ -197,24 +197,25 @@ calligraphy brush (medium),筆ペン
 enty reward,魅力的な報酬
 watercolor pencil (medium),水彩色鉛筆
 bad fanbox id,悪いファンボックスID
+story in commentary,キャプション芸
 waifu2x,waifu2x
 twitter sample,Twitterサンプル
 tumblr sample,Tumblrサンプル
 ruffle compatible,互換性のあるフリル
 indonesian commentary,インドネシアの解説
 origins,全てはここから始まった
+countdown illustration,カウントダウンイラスト
 hard-translated (non-english),ハード翻訳（英語以外）
-krita (medium),クリタ（中）
-vehicle request,車両リクエスト
-epilepsy warning,パカパカ演出
 pastel (medium),パステル
+vehicle request,車両リクエスト
+krita (medium),クリタ（中）
+epilepsy warning,パカパカ演出
 bad artstation id,悪いアートステーションID
 costume request,コスチュームリクエスト
 eyecatch,アイキャッチ
-countdown illustration,カウントダウンイラスト
 source filmmaker (medium),ソースフィルムメーカー（ミディアム）
-parody request,パロディリクエスト
 portuguese commentary,ポルトガルの解説
+parody request,パロディリクエスト
 corrupted metadata,破損したメタデータ
 contest winner,コンテストの勝者
 24-hour relay,24h接力
@@ -238,18 +239,18 @@ yandere sample,Yandereサンプル
 game model,ゲームモデル
 medium request,中程度のリクエスト
 corrupted file,破損したファイル
+hairstyle request,ヘアスタイルのリクエスト
 animal request,動物のリクエスト
 emofuri,えもふり
-hairstyle request,ヘアスタイルのリクエスト
 magazine request,雑誌のリクエスト
 plant request,植物のリクエスト
 has watermarked revision,透かし式の改訂があります
 bird request,鳥のリクエスト
 animated png,アニメーションpng
-ugoira conversion,ウゴイラ変換
 zbrush (medium),Zbrush（中）
-masking tape (medium),マスキングテープ
+ugoira conversion,ウゴイラ変換
 flower stand art,フラスタイラスト
+masking tape (medium),マスキングテープ
 color ink (medium),カラーインク
 ai-generated background,AI生成背景
 bad pawoo id,悪いPawoo ID
@@ -259,14 +260,14 @@ app filter,ガラスエフェクト
 medibang paint (medium),メディバンペイント
 italian commentary,イタリアの解説
 gouache (medium),ガッシュ
-roulette animation,ルーレットGIF
 has cropped revision,修正をトリミングしました
-color halftone,カラーハーフトーン
+roulette animation,ルーレットGIF
 mecha request,メカリクエスト
+color halftone,カラーハーフトーン
 flipnote studio (medium),うごメモ
 gif artifacts,GIFアーティファクト
-collage (medium),コラージュ
 character counter request,文字カウンターリクエスト
+collage (medium),コラージュ
 custom maid 3d 2,カスタムメイド3D2
 download link,ダウンロードリンク
 gumroad reward,ガムロード報酬
@@ -280,16 +281,16 @@ check source,ソースを確認してください
 blueprint (medium),図面
 bad tinami id,悪いティナミID
 gesture request,ジェスチャーリクエスト
-bad aspect ratio,悪いアスペクト比
 recolored,再び復活しました
+bad aspect ratio,悪いアスペクト比
 flash game,フラッシュゲーム
 bad newgrounds id,悪いnewgrounds id
 autodesk 3ds max (medium),Autodesk 3DS Max（Medium）
 fixed,修理済み
 zip available,zipが利用可能
 style request,スタイルリクエスト
-bleed through,裏写り
 acrylic stand (medium),アクリルスタンド(媒体)
+bleed through,裏写り
 neckwear request,ネックウェアのリクエスト
 color banding,カラーバンド
 animal ear request,動物の耳のリクエスト
@@ -301,8 +302,8 @@ bad drawcrowd id,悪いdrawcrowd ID
 cleaned,掃除
 nurimas,塗りマス
 location request,ロケーションリクエスト
-fish request,魚のリクエスト
 crayon (medium),クレヨン
+fish request,魚のリクエスト
 color issue,色の問題
 kisekae,kisekae
 twitter banner,Twitterバナー
@@ -313,16 +314,16 @@ poorly translated,翻訳が不十分です
 rotoscoping,ロトスコープ
 cursor (medium),マウスカーソル
 instrument request,機器のリクエスト
-has lossy revision,損失のある改訂があります
-avatar generator,アバタージェネレーター
 animatic,アニマティック
+avatar generator,アバタージェネレーター
+has lossy revision,損失のある改訂があります
 huashijie (medium),画世界
 vrchat (medium),VRチャット
 3d custom girl,3Dカスタム少女
 binding discoloration,結合変色
 print (medium),印刷（中）
-fake translation,偽の翻訳
 airbrush (medium),エアブラシ（中）
+fake translation,偽の翻訳
 charcoal (medium),木炭（中）
 exif thumbnail surprise,サムネイルのサプライズをexif
 reference photo,参照写真
