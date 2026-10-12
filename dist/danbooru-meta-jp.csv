@@ -50,8 +50,8 @@ textless version,文字なし差分
 third-party edit,二改
 photo (medium),照片
 jpeg artifacts,JPEGアーティファクト
-pixel-perfect duplicate,ピクセルに最適な複製
 animated gif,GIFアニメ
+pixel-perfect duplicate,ピクセルに最適な複製
 bad source,悪いソース
 dated commentary,日付の解説
 bad tumblr id,悪いTumblr ID
@@ -84,18 +84,18 @@ image sample,画像サンプル
 imageboard desourced,イメージボードが脱却されました
 artist collaboration,合作
 official wallpaper,公式の壁紙
-colorized,塗ってみた
 official artist extra,本家
+colorized,塗ってみた
 novel illustration,ライトノベル
 bad deviantart id,悪いdeviantArt id
 patreon reward,パトレオン報酬
 off-topic,オフトピック
-has bad revision,改訂が悪い
 ai-assisted,AI+手書き
-procreate (medium),プロクリエイト
+has bad revision,改訂が悪い
 concept art,コンセプトアート
-colored pencil (medium),色鉛筆
+procreate (medium),プロクリエイト
 clothing request,衣類のリクエスト
+colored pencil (medium),色鉛筆
 magazine scan,雑誌スキャン
 hard-translated,ハード翻訳
 resized,补分辨率
@@ -109,8 +109,8 @@ screenshot,スクリーンショット
 screenshot redraw,スクリーンキャップの再描画
 mixed media,混合メディア
 artbook,画集
-pixiv sample,pixivサンプル
 flower request,フラワーリクエスト
+pixiv sample,pixivサンプル
 check copyright,著作権を確認してください
 english audio,英語の音声
 tagme,私をタグして
@@ -126,8 +126,8 @@ romaji commentary,ロマジの解説
 redrawn,セルフリメイク
 stitched,ステッチ
 key visual,キービジュアル
-check character,文字を確認してください
 thai commentary,タイの解説
+check character,文字を確認してください
 guest art,応援イラスト
 paint.net (medium),paint.net（中）
 check artist,アーティストをチェックしてください
@@ -159,8 +159,8 @@ oil painting (medium),油絵
 commentary typo,解説タイプミス
 art study,習作
 nib pen (medium),つけペン
-third-party watermark,サードパーティの透かし
 engrish commentary,刻印解説
+third-party watermark,サードパーティの透かし
 decensored,ディレクレッド
 bad hentai foundry id,悪いヘンタイの根拠ID
 album cover redraw,ジャケパロ
@@ -169,14 +169,14 @@ self-portrait,自画像
 completion time,完了時間
 game screenshot,ゲームスクリーンショット
 koikatsu (medium),コイカツ!
-detexted,剥離しました
 end card,エンドカード
 paint chat (medium),絵ちゃ
+detexted,剥離しました
 aliasing,エイリアシング
 bad nijie id,悪いnijie id
 microsoft paint (medium),MSペイント
-flash,閃光
 comic panel redraw,漫画パネルのredRaw
+flash,閃光
 headwear request,帽子のリクエスト
 mikumikudance (medium),Mikumikudance（中）
 annotation request,注釈リクエスト
@@ -224,16 +224,15 @@ bad yandere id,悪いヤンデレID
 reverse translation,逆翻訳
 e-hentai sample,e-Hentaiサンプル
 artstation sample,アートステーションサンプル
-deviantart sample,DeviantArtサンプル
 partially annotated,部分的に注釈が付けられました
-mousepad (medium),立体マウスパッド
+deviantart sample,DeviantArtサンプル
 papercraft (medium),ペーパークラフト（中程度）
-tegaki draw and tweet,テガキは描画とツイートを描きます
 official art redraw,公式絵を元に自分絵で描くタグ
+tegaki draw and tweet,テガキは描画とツイートを描きます
 exif rotation,exif回転
 german commentary,ドイツの解説
-rotated,回転
 vietnamese commentary,ベトナムの解説
+rotated,回転
 cosplay request,コスプレリクエスト
 headshop,ヘッドショップ
 yandere sample,Yandereサンプル
@@ -244,8 +243,8 @@ animal request,動物のリクエスト
 corrupted file,破損したファイル
 emofuri,えもふり
 magazine request,雑誌のリクエスト
-plant request,植物のリクエスト
 bird request,鳥のリクエスト
+plant request,植物のリクエスト
 animated png,アニメーションpng
 has watermarked revision,透かし式の改訂があります
 zbrush (medium),Zbrush（中）
@@ -259,11 +258,11 @@ gouache (medium),ガッシュ
 italian commentary,イタリアの解説
 bad pawoo id,悪いPawoo ID
 app filter,ガラスエフェクト
-lossless-lossy,ロスレス損失
 reversed,逆
+lossless-lossy,ロスレス損失
 medibang paint (medium),メディバンペイント
-has cropped revision,修正をトリミングしました
 character counter request,文字カウンターリクエスト
+has cropped revision,修正をトリミングしました
 roulette animation,ルーレットGIF
 color halftone,カラーハーフトーン
 mecha request,メカリクエスト
@@ -274,14 +273,13 @@ custom maid 3d 2,カスタムメイド3D2
 download link,ダウンロードリンク
 gumroad reward,ガムロード報酬
 thumbnail surprise,サムネイルの驚き
-hair ornament request,髪の飾りリクエスト
 reference request,参照リクエスト
-nai diffusion,nai拡散
+hair ornament request,髪の飾りリクエスト
 song request,歌のリクエスト
+nai diffusion,nai拡散
 check source,ソースを確認してください
-blueprint (medium),図面
-autodesk 3ds max (medium),Autodesk 3DS Max（Medium）
 gesture request,ジェスチャーリクエスト
+autodesk 3ds max (medium),Autodesk 3DS Max（Medium）
 bad tinami id,悪いティナミID
 recolored,再び復活しました
 bad aspect ratio,悪いアスペクト比
@@ -300,12 +298,12 @@ lego (medium),レゴ
 food art (medium),食べ物絵
 nicoseiga sample,nicoseigaサンプル
 bad drawcrowd id,悪いdrawcrowd ID
-cleaned,掃除
 nurimas,塗りマス
+cleaned,掃除
 location request,ロケーションリクエスト
 fish request,魚のリクエスト
-crayon (medium),クレヨン
 instrument request,機器のリクエスト
+crayon (medium),クレヨン
 color issue,色の問題
 kisekae,kisekae
 model kit (medium),ガンプラ
@@ -313,19 +311,18 @@ twitter banner,Twitterバナー
 stop motion animation,コマ撮り
 rotoscoping,ロトスコープ
 brush (medium),ブラシ（中）
-cursor (medium),マウスカーソル
-has lossy revision,損失のある改訂があります
-poorly translated,翻訳が不十分です
 animatic,アニマティック
+poorly translated,翻訳が不十分です
+has lossy revision,損失のある改訂があります
 avatar generator,アバタージェネレーター
 huashijie (medium),画世界
 vrchat (medium),VRチャット
 3d custom girl,3Dカスタム少女
 binding discoloration,結合変色
 airbrush (medium),エアブラシ（中）
+reference photo,参照写真
 charcoal (medium),木炭（中）
 print (medium),印刷（中）
-reference photo,参照写真
 fake translation,偽の翻訳
 exif thumbnail surprise,サムネイルのサプライズをexif
 bad e-hentai id,悪いe-Hentai ID
