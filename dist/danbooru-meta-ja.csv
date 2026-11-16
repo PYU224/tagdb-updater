@@ -1,517 +1,519 @@
-highres,5,8416195,,高画質
-commentary request,5,6487896,,解説リクエスト
-commentary,5,3345886,,解説
-absurdres,5,3115187,,不条理
-bad id,5,1480965,,悪いID
-english commentary,5,1371962,,英語の解説
-bad pixiv id,5,1121403,,悪いpixiv id
-translation request,5,884766,,翻訳リクエスト
-photoshop (medium),5,710080,,ホトショ
-translated,5,659253,,翻訳
-official art,5,557350,,お仕事絵
-commission,5,349314,,コミッション
-untranslatable commentary,5,348309,symbol-only commentary,シンボルのみの解説
-chinese commentary,5,335263,simplified chinese commentary,中国の解説
-bad twitter id,5,259520,,悪いツイッターID
-variant set,5,241863,,差分
-korean commentary,5,210002,,韓国の解説
-non-web source,5,184090,,非ウェブソース
-game asset,5,175489,"datamine,game cg",游戏CG
-partial commentary,5,162379,,部分的な解説
-artist request,5,146501,,アーティストのリクエスト
-animated,5,138260,,アニメーション
-paid reward available,5,138140,,付费内容
-traditional media,5,130989,,アナログ
-copyright request,5,124554,,著作権リクエスト
-md5 mismatch,5,117881,,MD5ミスマッチ
-skeb commission,5,116881,,マブラヴSkeb部
-large variant set,5,116543,,
-lowres,5,114215,,ローレス
-third-party source,5,112489,,搬运
-second-party source,5,109277,,来源:约稿方
-scan,5,95110,,扫图
-mixed-language commentary,5,89956,,混合言語解説
-video,5,86923,,動画(WebMまたはmp4)
-revision,5,84413,,セルフリメイク
-character request,5,75965,,文字リクエスト
-bad link,5,60998,,悪いリンク
-self-datamine,5,50779,,
-spoilers,5,48726,,ネタバレ
-pixiv commission,5,45833,pixiv request,リクエスト絵
-visual novel cg,5,45011,,一枚絵
-check translation,5,44421,,翻訳を確認してください
-duplicate,5,42993,,重複
-sound,5,37489,audio,音
-protected link,5,36962,,保護されたリンク
-source request,5,34892,,ソースリクエスト
-resolution mismatch,5,32849,,解像度の不一致
-painting (medium),5,32211,canvas (medium),絵の具
-self-upload,5,30884,self upload,セルフアップロード
-inactive account,5,29027,,非アクティブアカウント
-textless version,5,28931,,文字なし差分
-third-party edit,5,28110,,二改
-photo (medium),5,27849,,照片
-jpeg artifacts,5,27433,,JPEGアーティファクト
-animated gif,5,27152,,GIFアニメ
-pixel-perfect duplicate,5,27020,,ピクセルに最適な複製
+highres,5,8467502,,高画質
+commentary request,5,6516922,,解説リクエスト
+commentary,5,3365503,,解説
+absurdres,5,3139536,,不条理
+bad id,5,1494060,,悪いID
+english commentary,5,1380477,,英語の解説
+bad pixiv id,5,1122562,,悪いpixiv id
+translation request,5,890223,,翻訳リクエスト
+photoshop (medium),5,710119,,ホトショ
+translated,5,660347,,翻訳
+official art,5,560040,,お仕事絵
+commission,5,352123,,コミッション
+untranslatable commentary,5,351220,symbol-only commentary,シンボルのみの解説
+chinese commentary,5,338614,simplified chinese commentary,中国の解説
+bad twitter id,5,260197,,悪いツイッターID
+variant set,5,245166,,差分
+korean commentary,5,211831,,韓国の解説
+non-web source,5,185003,,非ウェブソース
+game asset,5,176302,"datamine,game cg",游戏CG
+partial commentary,5,162901,,部分的な解説
+artist request,5,146797,,アーティストのリクエスト
+paid reward available,5,139860,,付费内容
+animated,5,139277,,アニメーション
+traditional media,5,131552,,アナログ
+copyright request,5,125233,,著作権リクエスト
+large variant set,5,122063,,
+md5 mismatch,5,117925,,MD5ミスマッチ
+skeb commission,5,117509,,マブラヴSkeb部
+lowres,5,114541,,ローレス
+third-party source,5,113276,,搬运
+second-party source,5,111051,,来源:约稿方
+scan,5,95233,,扫图
+mixed-language commentary,5,90957,,混合言語解説
+video,5,87726,,動画(WebMまたはmp4)
+revision,5,84745,,セルフリメイク
+character request,5,76714,,文字リクエスト
+bad link,5,61109,,悪いリンク
+self-datamine,5,51330,,
+spoilers,5,48877,,ネタバレ
+pixiv commission,5,46160,pixiv request,リクエスト絵
+visual novel cg,5,45150,,一枚絵
+check translation,5,44503,,翻訳を確認してください
+duplicate,5,43058,,重複
+sound,5,37836,audio,音
+protected link,5,36986,,保護されたリンク
+source request,5,34997,,ソースリクエスト
+resolution mismatch,5,32858,,解像度の不一致
+painting (medium),5,32338,canvas (medium),絵の具
+self-upload,5,31062,self upload,セルフアップロード
+textless version,5,29154,,文字なし差分
+inactive account,5,29093,,非アクティブアカウント
+third-party edit,5,28146,,二改
+photo (medium),5,27983,,照片
+jpeg artifacts,5,27440,,JPEGアーティファクト
+animated gif,5,27299,,GIFアニメ
+pixel-perfect duplicate,5,27047,,ピクセルに最適な複製
 bad fc2 link,5,26703,,
-dated commentary,5,26317,,日付の解説
-derivative work,5,25868,,パクリ
-bad tumblr id,5,25468,,悪いTumblr ID
-bad source,5,25362,,悪いソース
-unfinished,5,24870,,ボツ
-looping animation,5,23760,,ぬるぬる動く
-partially translated,5,23671,,部分的に翻訳されています
-watercolor (medium),5,23247,,すいさい
-check commentary,5,23188,,检查解说翻译
-ugoira,5,23132,,うごイラ
-ai-generated,5,19351,,AIねこみみ部
-marker (medium),5,19012,,コピック
-tall image,5,18018,,背の高い画像
-paid reward,5,17733,,有料の報酬
-source smaller,5,17371,,ソースが小さくなります
-alt text,5,17082,,altテキスト
-promotional art,5,16192,official ad,宣伝絵
-cropped,5,16140,,抠图
-anime screenshot,5,15710,anime screencap,动画截图
-making-of available,5,15521,,メイキング
-hashtag-only commentary,5,15137,,
-painttool sai (medium),5,14506,,ペイントツールSAI
-audible music,5,14469,,可聴音楽
-commissioner upload,5,14337,,约稿展示台
-source larger,5,13984,,ソースが大きくなります
-graphite (medium),5,13755,,シャープペンシル
-clip studio paint (medium),5,13743,"comic studio (medium),illust studio (medium),manga studio (medium)",クリスタ
-audible speech,5,13116,,可聴スピーチ
-photo-referenced,5,12960,,写真トレス
-adversarial noise,5,12304,"glaze artifacts,glaze protected image",敵対的ノイズ
-corrupted twitter file,5,11916,,
-bilingual commentary,5,11537,,
-image sample,5,11190,,画像サンプル
-artist collaboration,5,11036,,合作
-official wallpaper,5,10881,,公式の壁紙
-imageboard desourced,5,10837,,イメージボードが脱却されました
-official artist extra,5,10230,,本家
-colorized,5,9990,,塗ってみた
-novel illustration,5,9582,,ライトノベル
-bad deviantart id,5,9028,,悪いdeviantArt id
-patreon reward,5,9015,,パトレオン報酬
-ai-assisted,5,8776,,AI+手書き
-off-topic,5,8746,,オフトピック
-has bad revision,5,8498,,改訂が悪い
-concept art,5,8451,,コンセプトアート
-procreate (medium),5,8376,,プロクリエイト
-clothing request,5,8032,,衣類のリクエスト
-colored pencil (medium),5,7720,,色鉛筆
-magazine scan,5,7425,,雑誌スキャン
-hard-translated,5,7124,hard translated,ハード翻訳
-mihuashi commission,5,7077,,
-incredibly absurdres,5,6877,,信じられないほど不条理
-resized,5,6798,,补分辨率
-pen (medium),5,6617,,ペン（中）
-spanish commentary,5,6257,,スペイン語の解説
-bad twitter link,5,6242,,
-making-of,5,5948,making of,タイムラプス
-voice drama available,5,5818,,ボイスドラマ
-bad nicoseiga id,5,5752,,悪いnicoseiga id
-mixed media,5,5556,,混合メディア
-screenshot,5,5442,,スクリーンショット
-screenshot redraw,5,5329,screencap redraw,スクリーンキャップの再描画
-artbook,5,4957,,画集
-tagme,5,4889,,私をタグして
-flower request,5,4869,,フラワーリクエスト
+dated commentary,5,26462,,日付の解説
+derivative work,5,25982,,パクリ
+bad tumblr id,5,25697,,悪いTumblr ID
+bad source,5,25439,,悪いソース
+unfinished,5,25052,,ボツ
+looping animation,5,23944,,ぬるぬる動く
+partially translated,5,23730,,部分的に翻訳されています
+watercolor (medium),5,23350,,すいさい
+check commentary,5,23253,,检查解说翻译
+ugoira,5,23209,,うごイラ
+ai-generated,5,19542,,AIねこみみ部
+marker (medium),5,19095,,コピック
+tall image,5,18029,,背の高い画像
+paid reward,5,17769,,有料の報酬
+source smaller,5,17376,,ソースが小さくなります
+alt text,5,17261,,altテキスト
+promotional art,5,16315,official ad,宣伝絵
+cropped,5,16232,,抠图
+anime screenshot,5,15719,anime screencap,动画截图
+making-of available,5,15680,,メイキング
+hashtag-only commentary,5,15132,,
+audible music,5,14574,,可聴音楽
+commissioner upload,5,14540,,约稿展示台
+bad lofter id,5,14521,,
+painttool sai (medium),5,14514,,ペイントツールSAI
+source larger,5,13988,,ソースが大きくなります
+clip studio paint (medium),5,13834,"comic studio (medium),illust studio (medium),manga studio (medium)",クリスタ
+graphite (medium),5,13782,,シャープペンシル
+audible speech,5,13218,,可聴スピーチ
+photo-referenced,5,13040,,写真トレス
+adversarial noise,5,12396,"glaze artifacts,glaze protected image",敵対的ノイズ
+corrupted twitter file,5,11953,,
+bilingual commentary,5,11697,,
+image sample,5,11201,,画像サンプル
+artist collaboration,5,11089,,合作
+official wallpaper,5,10961,,公式の壁紙
+imageboard desourced,5,10835,,イメージボードが脱却されました
+official artist extra,5,10366,,本家
+colorized,5,9995,,塗ってみた
+novel illustration,5,9607,,ライトノベル
+bad deviantart id,5,9038,,悪いdeviantArt id
+patreon reward,5,9016,,パトレオン報酬
+ai-assisted,5,8887,,AI+手書き
+off-topic,5,8769,,オフトピック
+has bad revision,5,8506,,改訂が悪い
+concept art,5,8463,,コンセプトアート
+procreate (medium),5,8424,,プロクリエイト
+clothing request,5,8144,,衣類のリクエスト
+colored pencil (medium),5,7748,,色鉛筆
+magazine scan,5,7485,,雑誌スキャン
+mihuashi commission,5,7137,,
+hard-translated,5,7127,hard translated,ハード翻訳
+incredibly absurdres,5,6914,,信じられないほど不条理
+resized,5,6817,,补分辨率
+pen (medium),5,6628,,ペン（中）
+spanish commentary,5,6314,,スペイン語の解説
+bad twitter link,5,6253,,
+making-of,5,6007,making of,タイムラプス
+voice drama available,5,5891,,ボイスドラマ
+bad nicoseiga id,5,5755,,悪いnicoseiga id
+mixed media,5,5577,,混合メディア
+screenshot,5,5456,,スクリーンショット
+screenshot redraw,5,5356,screencap redraw,スクリーンキャップの再描画
+tagme,5,5047,,私をタグして
+artbook,5,4971,,画集
+flower request,5,4901,,フラワーリクエスト
 pixiv sample,5,4782,,pixivサンプル
-english audio,5,4706,,英語の音声
-check copyright,5,4692,,著作権を確認してください
-japanese audio,5,4638,,
-fan request,5,4614,,リクエスト
-blender (medium),5,4466,,ブレンダー（中）
-merchandise available,5,4423,,
-card commentary,5,4358,,
-alternate language,5,4235,,正規翻訳版
-scan artifacts,5,4075,,アーティファクトをスキャンします
-fanbox reward,5,3904,,ファンボックスの報酬
-live2d,5,3760,,Live2d
-annotated,5,3744,,注釈
-multi-source commentary,5,3727,multiple commentaries,
-has censored revision,5,3702,,検閲された改訂があります
-romaji commentary,5,3700,,ロマジの解説
-check artist,5,3670,,アーティストをチェックしてください
-redrawn,5,3635,,セルフリメイク
-stitched,5,3591,,ステッチ
-bad lofter id,5,3572,,
-key visual,5,3509,,キービジュアル
-thai commentary,5,3462,,タイの解説
-check character,5,3457,,文字を確認してください
-guest art,5,3453,,応援イラスト
+english audio,5,4753,,英語の音声
+check copyright,5,4751,,著作権を確認してください
+fan request,5,4693,,リクエスト
+japanese audio,5,4673,,
+blender (medium),5,4499,,ブレンダー（中）
+merchandise available,5,4461,,
+card commentary,5,4372,,
+alternate language,5,4255,,正規翻訳版
+scan artifacts,5,4087,,アーティファクトをスキャンします
+fanbox reward,5,3912,,ファンボックスの報酬
+live2d,5,3894,,Live2d
+multi-source commentary,5,3801,multiple commentaries,
+annotated,5,3753,,注釈
+romaji commentary,5,3711,,ロマジの解説
+has censored revision,5,3707,,検閲された改訂があります
+check artist,5,3681,,アーティストをチェックしてください
+redrawn,5,3658,,セルフリメイク
+stitched,5,3614,,ステッチ
+key visual,5,3538,,キービジュアル
+guest art,5,3498,,応援イラスト
+thai commentary,5,3493,,タイの解説
+check character,5,3470,,文字を確認してください
 paint.net (medium),5,3341,,paint.net（中）
 bad tumblr link,5,3254,,
-upscaled,5,3142,,Upscaled
-gift art,5,3054,,もらいもの
-acrylic paint (medium),5,2998,,アクリル
-production art,5,2857,,概念图
-gender request,5,2822,,性別リクエスト
-downscaled,5,2789,,ダウンスケール
-vgen commission,5,2758,,
+upscaled,5,3144,,Upscaled
+gift art,5,3074,,もらいもの
+acrylic paint (medium),5,3001,,アクリル
+production art,5,2880,,概念图
+vgen commission,5,2831,,
+gender request,5,2828,,性別リクエスト
+downscaled,5,2806,,ダウンスケール
+food request,5,2695,,フードリクエスト
 bad bcy id,5,2685,,悪いbcy id
-food request,5,2681,,フードリクエスト
 bad drawr id,5,2668,,悪いdrawr id
+russian commentary,5,2586,,ロシアの解説
+wide image,5,2582,,広い画像
 archived source,5,2580,,アーカイブソース
-wide image,5,2578,,広い画像
-russian commentary,5,2574,,ロシアの解説
 millipen (medium),5,2482,,ミリペン
-weapon request,5,2442,,武器のリクエスト
-nude filter,5,2352,,剥ぎコラ
-has downscaled revision,5,2279,,改訂版がダウンしています
-unconventional media,5,2278,,型破りなメディア
+weapon request,5,2455,,武器のリクエスト
+nude filter,5,2355,,剥ぎコラ
+unconventional media,5,2288,,型破りなメディア
+has downscaled revision,5,2280,,改訂版がダウンしています
 gimp (medium),5,2232,,GIMP（中）
-cosplay photo,5,2210,,コスプレイヤ
-ibispaint (medium),5,2178,,アイビスペイント
-alpha transparency,5,2122,,アルファ透明性
+cosplay photo,5,2212,,コスプレイヤ
+ibispaint (medium),5,2202,,アイビスペイント
+alpha transparency,5,2129,,アルファ透明性
 figure (medium),5,2044,,
-vector trace,5,2039,,ベクトルトレース
-crease,5,2033,,折り目
+vector trace,5,2040,,ベクトルトレース
+crease,5,2034,,折り目
+lossy-lossless,5,1952,,損失のない
 bad nico seiga link,5,1950,,
 bad imgur id,5,1903,,
-lossy-lossless,5,1887,,損失のない
-oil painting (medium),5,1884,,油絵
-multilingual commentary,5,1839,,
-commentary typo,5,1717,,解説タイプミス
+oil painting (medium),5,1891,,油絵
+multilingual commentary,5,1852,,
+commentary typo,5,1724,,解説タイプミス
 fancy embedded notes,5,1715,,
-art study,5,1657,,習作
-nib pen (medium),5,1565,,つけペン
-engrish commentary,5,1517,,刻印解説
-third-party watermark,5,1505,,サードパーティの透かし
+art study,5,1659,,習作
+nib pen (medium),5,1566,,つけペン
+engrish commentary,5,1526,,刻印解説
+third-party watermark,5,1509,,サードパーティの透かし
 decensored,5,1495,,ディレクレッド
 bad hentai foundry id,5,1492,bad hentai-foundry id,悪いヘンタイの根拠ID
 bad discord link,5,1489,,
-album cover redraw,5,1478,,ジャケパロ
-self-portrait,5,1443,,自画像
-comic panel redraw,5,1435,manga panel redraw,漫画パネルのredRaw
+album cover redraw,5,1486,,ジャケパロ
+self-portrait,5,1454,,自画像
+comic panel redraw,5,1441,manga panel redraw,漫画パネルのredRaw
+completion time,5,1429,drawing time,完了時間
 bad patreon id,5,1428,,悪いパトレオンID
-completion time,5,1421,drawing time,完了時間
-game screenshot,5,1374,,ゲームスクリーンショット
-koikatsu (medium),5,1345,,コイカツ!
-paint chat (medium),5,1331,,絵ちゃ
-end card,5,1293,,エンドカード
-detexted,5,1291,,剥離しました
-aliasing,5,1254,,エイリアシング
-headwear request,5,1232,,帽子のリクエスト
+game screenshot,5,1378,,ゲームスクリーンショット
+koikatsu (medium),5,1350,,コイカツ!
+paint chat (medium),5,1332,,絵ちゃ
+end card,5,1294,,エンドカード
+detexted,5,1292,,剥離しました
+aliasing,5,1258,,エイリアシング
+headwear request,5,1236,,帽子のリクエスト
+microsoft paint (medium),5,1230,"ms paint (medium),mspaint (medium)",MSペイント
 bad nijie id,5,1227,,悪いnijie id
-microsoft paint (medium),5,1210,"ms paint (medium),mspaint (medium)",MSペイント
 flash,5,1202,,閃光
-annotation request,5,1186,,注釈リクエスト
-mikumikudance (medium),5,1180,mmd (medium),Mikumikudance（中）
-ych commission,5,1157,,
-source mismatch,5,1142,,ソースの不一致
-24-hour relay,5,1099,,24h接力
+annotation request,5,1190,,注釈リクエスト
+mikumikudance (medium),5,1181,mmd (medium),Mikumikudance（中）
+ych commission,5,1170,,
+source mismatch,5,1145,,ソースの不一致
+24-hour relay,5,1144,,24h接力
+check clothing,5,1117,,
 bad blogspot link,5,1099,bad blogger link,
-check clothing,5,1098,,
-psd available,5,1093,,PSDが利用可能
-ballpoint pen (medium),5,1080,,ボールペン
-adoptable,5,1071,,
-music video,5,1047,,ミュージックビデオ
+adoptable,5,1096,,
+psd available,5,1096,,PSDが利用可能
+ballpoint pen (medium),5,1088,,ボールペン
+music video,5,1055,,ミュージックビデオ
 fantia reward,5,1042,,ファンタの報酬
-bad instagram id,5,1008,,悪いInstagram ID
+bad instagram id,5,1009,,悪いInstagram ID
 bad weibo id,5,989,,悪いweibo id
+audible internal cumshot,5,983,,可聴内部累積
+story in commentary,5,981,,キャプション芸
 ink (medium),5,974,,インク（中）
-audible internal cumshot,5,973,,可聴内部累積
 bad poipiku id,5,973,,悪いpoipiku id
-story in commentary,5,963,,キャプション芸
-60+fps,5,957,,60+fps
-imageboard first-party source,5,948,,
-object request,5,936,check object,オブジェクトリクエスト
-french commentary,5,905,,フランスの解説
+60+fps,5,958,,60+fps
+imageboard first-party source,5,951,,
+object request,5,946,check object,オブジェクトリクエスト
+french commentary,5,919,,フランスの解説
 pdf available,5,900,,PDF利用可能
+countdown illustration,5,899,,カウントダウンイラスト
 twitter sample,5,899,,Twitterサンプル
-countdown illustration,5,875,,カウントダウンイラスト
+thumbnail collage,5,883,twitter thumbnail collage,
 bad facebook link,5,873,,
-krita (medium),5,852,,クリタ（中）
-thumbnail collage,5,848,twitter thumbnail collage,
+krita (medium),5,853,,クリタ（中）
 watercolor pencil (medium),5,842,,水彩色鉛筆
 calligraphy brush (medium),5,840,,筆ペン
+bad fanbox id,5,835,,悪いファンボックスID
 enty reward,5,835,,魅力的な報酬
-bad fanbox id,5,832,,悪いファンボックスID
 waifu2x,5,809,,waifu2x
-epilepsy warning,5,798,,パカパカ演出
-indonesian commentary,5,793,,インドネシアの解説
+epilepsy warning,5,806,,パカパカ演出
+indonesian commentary,5,801,,インドネシアの解説
+origins,5,791,,全てはここから始まった
 tumblr sample,5,791,,Tumblrサンプル
-origins,5,787,,全てはここから始まった
 artist-provided artwork,5,786,,
 ruffle compatible,5,781,,互換性のあるフリル
-vehicle request,5,775,car request,車両リクエスト
-costume request,5,764,,コスチュームリクエスト
-hard-translated (non-english),5,763,hard translated (non-english),ハード翻訳（英語以外）
+vehicle request,5,780,car request,車両リクエスト
+costume request,5,776,,コスチュームリクエスト
+hard-translated (non-english),5,762,hard translated (non-english),ハード翻訳（英語以外）
 spine (medium),5,760,,
 eyecatch,5,759,,アイキャッチ
-pastel (medium),5,751,,パステル
+pastel (medium),5,752,,パステル
+bad arca.live id,5,748,,
 third-party extraction,5,747,,
-bad arca.live id,5,747,,
-bad artstation id,5,737,,悪いアートステーションID
-traditional chinese commentary,5,727,,
-portuguese commentary,5,724,,ポルトガルの解説
-meme request,5,718,,
-source filmmaker (medium),5,709,,ソースフィルムメーカー（ミディアム）
-parody request,5,696,,パロディリクエスト
-ko-fi commission,5,674,,
+bad artstation id,5,739,,悪いアートステーションID
+traditional chinese commentary,5,738,,
+portuguese commentary,5,727,,ポルトガルの解説
+meme request,5,715,,
+source filmmaker (medium),5,710,,ソースフィルムメーカー（ミディアム）
+parody request,5,702,,パロディリクエスト
+ko-fi commission,5,679,,
 corrupted metadata,5,671,,破損したメタデータ
 contest winner,5,661,,コンテストの勝者
 reverse translation,5,645,,逆翻訳
 bad yandere id,5,643,,悪いヤンデレID
-e-hentai sample,5,640,,e-Hentaiサンプル
+e-hentai sample,5,641,,e-Hentaiサンプル
 artstation sample,5,633,,アートステーションサンプル
-video thumbnail,5,631,,
-figure available,5,622,,
-partially annotated,5,621,,部分的に注釈が付けられました
+video thumbnail,5,632,,
+partially annotated,5,627,,部分的に注釈が付けられました
+official art redraw,5,626,,公式絵を元に自分絵で描くタグ
+figure available,5,624,,
+variant set available,5,623,,
 bad piapro id,5,614,,
 deviantart sample,5,613,,DeviantArtサンプル
 bmp-to-png conversion,5,610,,
 papercraft (medium),5,605,,ペーパークラフト（中程度）
 bad mihuashi id,5,604,,
-official art redraw,5,601,,公式絵を元に自分絵で描くタグ
-variant set available,5,601,,
 tegaki draw and tweet,5,578,,テガキは描画とツイートを描きます
-vietnamese commentary,5,565,,ベトナムの解説
-hairstyle request,5,561,"check hairstyle,hair request,hair style request",ヘアスタイルのリクエスト
-rotated,5,560,,回転
-exif rotation,5,556,,exif回転
-german commentary,5,556,,ドイツの解説
+rotated,5,573,,回転
+hairstyle request,5,569,"check hairstyle,hair request,hair style request",ヘアスタイルのリクエスト
+vietnamese commentary,5,567,,ベトナムの解説
+german commentary,5,565,,ドイツの解説
+exif rotation,5,558,,exif回転
 cosplay request,5,540,,コスプレリクエスト
-art trade,5,532,,交換絵
+art trade,5,536,,交換絵
 headshop,5,532,,ヘッドショップ
+hatsune miku (voicebank),5,515,,
+paywall cliffhanger,5,501,,
 yandere sample,5,497,,Yandereサンプル
-paywall cliffhanger,5,494,,
-hatsune miku (voicebank),5,494,,
 bad weibo link,5,474,,
 game model,5,469,,ゲームモデル
-figure-referenced,5,451,,
+figure-referenced,5,452,,
 microphone request,5,445,,
-animal request,5,438,,動物のリクエスト
+animal request,5,444,,動物のリクエスト
 medium request,5,437,,中程度のリクエスト
-fanfiction available,5,435,,
+fanfiction available,5,437,,
 self-scan,5,432,,
 bad fantia id,5,421,,
+missing commentary,5,419,,
 corrupted file,5,418,,破損したファイル
-animated png,5,417,,アニメーションpng
-ascii art commentary,5,401,,
+animated png,5,418,,アニメーションpng
+ascii art commentary,5,402,,
 emofuri,5,400,,えもふり
+chinese audio,5,398,,
+plant request,5,396,,植物のリクエスト
 magazine request,5,396,,雑誌のリクエスト
-chinese audio,5,396,,
-plant request,5,394,,植物のリクエスト
-missing commentary,5,394,,
-bird request,5,390,,鳥のリクエスト
-merged layers,5,385,,
+bird request,5,394,,鳥のリクエスト
+merged layers,5,387,,
 bad facebook id,5,385,,
 first-party extraction,5,384,,
-collage (medium),5,377,,コラージュ
+pose request,5,384,posture request,
+collage (medium),5,381,,コラージュ
+sprite redraw,5,378,,
 has watermarked revision,5,376,,透かし式の改訂があります
-sprite redraw,5,376,,
-pose request,5,372,posture request,
 zbrush (medium),5,371,,Zbrush（中）
 youtube video thumbnail,5,364,,
-flower stand art,5,361,,フラスタイラスト
+flower stand art,5,364,,フラスタイラスト
 color ink (medium),5,357,,カラーインク
-maya (medium),5,355,,
+maya (medium),5,356,,
+ai-generated background,5,354,,AI生成背景
 ugoira conversion,5,353,,ウゴイラ変換
 bad pinterest link,5,351,,
-masking tape (medium),5,348,washi tape (medium),マスキングテープ
-check gender,5,341,,
+masking tape (medium),5,350,washi tape (medium),マスキングテープ
+gouache (medium),5,343,,ガッシュ
+check gender,5,342,,
 bad miyoushe link,5,341,,
-gouache (medium),5,340,,ガッシュ
-ai-generated background,5,334,,AI生成背景
-volume warning,5,328,sound warning,
+volume warning,5,331,sound warning,
 bad ameba link,5,308,,
-italian commentary,5,303,,イタリアの解説
+italian commentary,5,304,,イタリアの解説
 app filter,5,298,,ガラスエフェクト
+korean audio,5,298,,
 stable diffusion,5,298,,
+non-repeating animation,5,295,,非回復アニメーション
+video game cover redraw,5,295,,
+reversed,5,295,,逆
 bad pawoo id,5,295,,悪いPawoo ID
-non-repeating animation,5,294,,非回復アニメーション
 bad daum id,5,294,,
-video game cover redraw,5,292,,
-reversed,5,292,,逆
 cameo request,5,291,,
-art fight attack,5,288,"art fight gift,artfight attack,artfight gift",
+art fight attack,5,289,"art fight gift,artfight attack,artfight gift",
 lossless-lossy,5,288,,ロスレス損失
-korean audio,5,287,,
 medibang paint (medium),5,282,,メディバンペイント
-character counter request,5,276,,文字カウンターリクエスト
+character counter request,5,277,,文字カウンターリクエスト
 bad 4chan link,5,274,,
-has cropped revision,5,272,,修正をトリミングしました
+has cropped revision,5,273,,修正をトリミングしました
 mecha request,5,272,check mecha,メカリクエスト
-roulette animation,5,267,,ルーレットGIF
-color halftone,5,266,,カラーハーフトーン
-flipnote studio (medium),5,261,,うごメモ
-gif artifacts,5,260,,GIFアーティファクト
-gibberish commentary,5,253,,
-vocal synthesizer audio,5,248,,
+color halftone,5,268,,カラーハーフトーン
+roulette animation,5,266,,ルーレットGIF
+flipnote studio (medium),5,265,,うごメモ
+gif artifacts,5,261,,GIFアーティファクト
+gibberish commentary,5,254,,
+vocal synthesizer audio,5,251,,
+thumbnail surprise,5,245,,サムネイルの驚き
 custom maid 3d 2,5,244,,カスタムメイド3D2
 download link,5,244,,ダウンロードリンク
 gumroad reward,5,244,,ガムロード報酬
-reference request,5,243,,参照リクエスト
 aseprite (medium),5,243,,
-thumbnail surprise,5,242,,サムネイルの驚き
-still animation,5,234,single frame,
+reference request,5,241,,参照リクエスト
+still animation,5,236,single frame,
 bad bilibili id,5,232,,
+song request,5,231,,歌のリクエスト
+check source,5,231,,ソースを確認してください
 hair ornament request,5,231,,髪の飾りリクエスト
 nai diffusion,5,231,,nai拡散
-song request,5,227,,歌のリクエスト
-sound effect request,5,224,,
-check source,5,224,,ソースを確認してください
+sound effect request,5,227,,
+acrylic stand (medium),5,224,,アクリルスタンド(媒体)
+gesture request,5,223,,ジェスチャーリクエスト
 bad vkontakte id,5,223,,
-gesture request,5,222,,ジェスチャーリクエスト
-acrylic stand (medium),5,218,,アクリルスタンド(媒体)
+autodesk 3ds max (medium),5,214,,Autodesk 3DS Max（Medium）
 color study,5,214,,
-autodesk 3ds max (medium),5,213,,Autodesk 3DS Max（Medium）
 bad tinami id,5,210,,悪いティナミID
+magma (medium),5,209,aggie.io (medium),
 recolored,5,209,,再び復活しました
-magma (medium),5,208,aggie.io (medium),
+kasane teto (voicebank),5,208,,
 bad aspect ratio,5,205,,悪いアスペクト比
 bad newgrounds id,5,202,,悪いnewgrounds id
 flash game,5,201,,フラッシュゲーム
 bad baraag id,5,197,,
 bad postype id,5,197,,
-kasane teto (voicebank),5,196,,
 bad reddit id,5,193,,
 fixed,5,189,,修理済み
 zip available,5,188,,zipが利用可能
+meme attire request,5,186,,
 style request,5,185,,スタイルリクエスト
+animal ear request,5,185,,動物の耳のリクエスト
 color banding,5,184,posterization,カラーバンド
+bad dc inside id,5,184,,
+background request,5,183,check background,
+bleed through,5,183,,裏写り
 bad bilibili link,5,183,,
-bad dc inside id,5,183,,
-animal ear request,5,183,,動物の耳のリクエスト
-bleed through,5,182,,裏写り
-meme attire request,5,181,,
 neckwear request,5,179,,ネックウェアのリクエスト
-background request,5,177,check background,
-transcoded,5,169,,
+transcoded,5,172,,
 bad fandom id,5,167,,
 paper cutout (medium),5,165,,切り絵
-food art (medium),5,164,,食べ物絵
-lego (medium),5,164,,レゴ
+food art (medium),5,165,,食べ物絵
+lego (medium),5,165,,レゴ
+mixed-language audio,5,163,,
+creature request,5,162,,
 metadata reference,5,162,"filesize reference,metadata pun,resolution reference",
-creature request,5,161,,
-mixed-language audio,5,161,,
 drawpile (medium),5,161,,
 bad artstation link,5,160,,
 nicoseiga sample,5,160,,nicoseigaサンプル
 bad bluesky id,5,158,,
-latin commentary,5,154,,
+latin commentary,5,156,,
 bad drawcrowd id,5,152,,悪いdrawcrowd ID
 bad blogspot id,5,151,bad blogger id,
 naver sample,5,150,,
-fashion style request,5,148,,
-has artifacted revision,5,148,,
+has artifacted revision,5,149,,
 comic cover redraw,5,146,,
 bad tinami link,5,146,,
 nurimas,5,141,,塗りマス
-cleaned,5,140,,掃除
+cleaned,5,141,,掃除
+fish request,5,140,,魚のリクエスト
 footwear request,5,136,,
-fish request,5,134,,魚のリクエスト
+ukrainian commentary,5,134,,
 instrument request,5,133,check instrument,機器のリクエスト
 bad skeb id,5,133,,
 bad plurk link,5,133,,
 location request,5,133,,ロケーションリクエスト
-ukrainian commentary,5,131,,
-adobe animate (medium),5,127,adobe flash (medium),
-voice actor drawing own character,5,125,,
+voice actor drawing own character,5,129,,
+adobe animate (medium),5,129,adobe flash (medium),
 has adversarial noise revision,5,124,has glazed revision,
-line sticker available,5,123,,
+line sticker available,5,124,,
 crayon (medium),5,123,,クレヨン
+postage stamp (medium),5,122,,
 bad reddit link,5,121,,
-postage stamp (medium),5,121,,
+after effects (medium),5,120,,
 color issue,5,119,,色の問題
+fashion style request,5,119,,
 kisekae,5,119,,kisekae
-twitter banner,5,117,,Twitterバナー
+rotoscoping,5,119,,ロトスコープ
 model kit (medium),5,117,,ガンプラ
+twitter banner,5,117,,Twitterバナー
 stop motion animation,5,116,,コマ撮り
-rotoscoping,5,116,,ロトスコープ
-bad vkontakte link,5,114,bad vk link,
-dog request,5,114,,
+bad vkontakte link,5,115,bad vk link,
+dog request,5,115,,
 lighting study,5,113,,
 mojibake commentary,5,113,,
-arabic commentary,5,111,,
 cinema 4d (medium),5,111,,
+third-party ai edit,5,111,,
+arabic commentary,5,111,,
 cosplay-referenced,5,110,,
 adobe firefly (medium),5,110,,
 brush (medium),5,110,,ブラシ（中）
 bad tistory link,5,109,,
 animatic,5,108,,アニマティック
 bad ruliweb link,5,108,,
-slideshow animation,5,106,,
+slideshow animation,5,107,,
 poorly translated,5,106,,翻訳が不十分です
-third-party ai edit,5,106,,
 has lossy revision,5,106,,損失のある改訂があります
 magicaldraw (medium),5,105,,
+bad misskey.io id,5,105,,
+spanish audio,5,103,,
 second-party edit,5,103,,
 book cover redraw,5,102,,
 avatar generator,5,102,,アバタージェネレーター
-spanish audio,5,101,,
-check vehicle,5,98,,
-constellation request,5,98,,
+constellation request,5,101,,
+alight motion (medium),5,100,,
+check vehicle,5,99,,
+check weapon,5,99,,
+vrchat (medium),5,99,,VRチャット
 emotelab (medium),5,98,,
-vrchat (medium),5,98,,VRチャット
-check weapon,5,97,,
-huashijie (medium),5,96,,画世界
+adobe illustrator (medium),5,97,,
 opencanvas (medium),5,96,,
-adobe illustrator (medium),5,95,,
+huashijie (medium),5,96,,画世界
+check food,5,95,,
+rule34.xxx sample,5,94,,
 easytoon (medium),5,94,,
-alight motion (medium),5,93,,
-bad misskey.io id,5,93,,
-rule34.xxx sample,5,92,,
-bad e-hentai id,5,92,,悪いe-Hentai ID
-check food,5,91,,
+bad e-hentai id,5,93,,悪いe-Hentai ID
 picrew (medium),5,91,,
 unreal engine (medium),5,89,unreal (medium),
 bad pawoo link,5,88,,
 fiverr commission,5,87,,
+heic-to-png conversion,5,87,,
 3d custom girl,5,87,,3Dカスタム少女
 bad tistory id,5,87,,
+doll (medium),5,86,,
 bad carrd link,5,84,,
+airbrush (medium),5,83,,エアブラシ（中）
 greek commentary,5,83,,
+reference photo,5,83,,参照写真
 binding discoloration,5,83,,結合変色
-airbrush (medium),5,82,,エアブラシ（中）
-reference photo,5,82,,参照写真
-doll (medium),5,82,,
-print (medium),5,82,,印刷（中）
 anatomy study,5,81,,
+expression request,5,81,,
 charcoal (medium),5,81,,木炭（中）
-expression request,5,80,,
+print (medium),5,81,,印刷（中）
 fake translation,5,80,,偽の翻訳
 bad lofter link,5,79,,
+daz studio (medium),5,77,,
 bad e-hentai link,5,77,,
 exif thumbnail surprise,5,77,,サムネイルのサプライズをexif
 rebelle (medium),5,76,,
 acrylic gouache (medium),5,75,,
-daz studio (medium),5,75,,
+crepe commission,5,75,,
 corrected aspect ratio,5,74,,
-after effects (medium),5,74,,
-heic-to-png conversion,5,73,,
-check flower,5,73,,
+check flower,5,74,,
+bad xiaohongshu id,5,73,,
+webp-to-png conversion,5,73,,WebPからPNGへの変換
 check spoilers,5,72,,
-webp-to-png conversion,5,72,,WebPからPNGへの変換
 bad google+ id,5,72,,悪いGoogle+ ID
 zalgo commentary,5,71,,
 environment study,5,71,,背景練習
-bad xiaohongshu id,5,70,,
 bad cgsociety id,5,70,,
 bad cghub id,5,70,,悪いCGHUB ID
 clay (medium),5,69,,软陶
-felt (medium),5,68,,羊毛フェルト
+felt (medium),5,69,,羊毛フェルト
+corel painter (medium),5,68,,
+mihuashi sample,5,66,,
 garry's mod (medium),5,66,,
 latte art (medium),5,66,coffee art (medium),ラテアート
 swedish audio,5,66,,
-mihuashi sample,5,66,,
 bad paheal link,5,66,,
-crepe commission,5,65,,
-pattern request,5,65,print request,
+fruit request,5,65,,
 midjourney,5,65,,ミッドジャーニー
-corel painter (medium),5,65,,
-fruit request,5,64,,
+art program request,5,65,,
 bad deviantart link,5,64,,
+pattern request,5,64,print request,
 custom order maid 3d 2,5,64,,
 bad furaffinity link,5,64,,
 autodesk sketchbook (medium),5,64,,
 coupy pencil (medium),5,64,,クーピーペンシル
+firealpaca (medium),5,63,,
 wallpaper forced,5,63,,壁紙が強制されました
 vector art,5,62,,
 noise reduction,5,62,,ノイズ減少
@@ -519,22 +521,20 @@ xnalara (medium),5,61,,
 heavy adversarial noise,5,60,,
 bad youtube id,5,60,,
 wigglypaint (medium),5,59,,
-firealpaca (medium),5,58,,
+morse code commentary,5,58,,
 fantia commission,5,58,,ファンタ委員会
 reference work request,5,58,,参照作業リクエスト
-morse code commentary,5,57,,
 engraving (medium),5,57,,
+check animal,5,56,,
 low bitrate,5,56,,
-check animal,5,55,,
-art program request,5,55,,
+polish commentary,5,55,,
 bad dlsite link,5,55,,
 ai-synthesized speech,5,54,,
-polish commentary,5,54,,
 drawcrowd sample,5,54,,DrawCrowdサンプル
 postcard (medium),5,53,,
+trimmed,5,52,,
 check annotation,5,52,,
 scan dust,5,52,,ほこりをスキャンします
-trimmed,5,51,,
 bad nijie link,5,51,,
 unity (medium),5,51,,ユニティ
 bad google drive id,5,50,,
@@ -552,53 +552,55 @@ bad huaban link,5,45,,
 flipaclip (medium),5,45,,
 konachan sample,5,45,,コナチャンのサンプル
 style study,5,44,,
+kaai yuki (voicebank),5,44,,
 cd (source),5,44,,
 r'lyehian commentary,5,44,,
 bad steam link,5,44,,
+bad booth id,5,44,,
 fantia sample,5,43,,
-bad booth id,5,43,,
 portuguese audio,5,42,,
+amigurumi (medium),5,42,"crocheted figure (medium),knit figure (medium)",編みぐるみ
+drink request,5,42,,
 video crop,5,42,,
+aircraft request,5,42,,航空機のリクエスト
 goo engine (medium),5,41,,
-kaai yuki (voicebank),5,41,,
-amigurumi (medium),5,41,"crocheted figure (medium),knit figure (medium)",編みぐるみ
 bad bluesky link,5,41,,
-drink request,5,41,,
 garage kit (medium),5,41,,
-aircraft request,5,41,,航空機のリクエスト
+bad furaffinity id,5,40,,
 fandom sample,5,40,,
 dotpict (medium),5,39,,
+armor request,5,39,,
 reddit sample,5,39,,
-bad furaffinity id,5,39,,
 bad ci-en id,5,39,,
 swedish commentary,5,38,,
-armor request,5,38,,
+species request,5,37,,
 longer video available,5,37,,
 finnish commentary,5,37,,
+kafu (voicebank),5,37,,
 modo (medium),5,36,,
 keyshot (medium),5,36,,
 motion capture animation,5,36,,
 gelbooru sample,5,36,,
 bad bcy link,5,35,,
 bad newgrounds link,5,35,,
-nurimas template,5,35,,
-kafu (voicebank),5,35,,
-species request,5,34,,
+horizontally flipped,5,35,,
+kagamine rin (voicebank),5,34,,
+character counter check,5,34,,
 material study,5,34,,
-character counter check,5,33,,
 bad instagram link,5,33,,
-horizontally flipped,5,33,,
 whiteboard (medium),5,33,,
 blockbench (medium),5,33,,
 video available,5,33,,
 french audio,5,32,,
 check medium,5,32,,
+gumi (voicebank),5,32,,
+nurimas template,5,32,,
 russian audio,5,32,,
-gumi (voicebank),5,31,,
 kirigami (medium),5,31,,
 whiteboard fox (medium),5,31,,
 bad dropbox id,5,31,,
-kagamine rin (voicebank),5,30,,
+adachi rei (voicebank),5,30,,
 background color dependent,5,30,,
+charm (medium),5,30,,
 bad pinterest id,5,30,,
 pose study,5,30,,
